@@ -1,0 +1,621 @@
+{
+ "artist_hits": 160,
+ "eligible": 128,
+ "match_count": 40,
+ "matched_by_year": {
+  "1994": 2,
+  "1995": 4,
+  "1996": 5,
+  "1997": 7,
+  "1998": 10,
+  "1999": 9,
+  "2000": 3
+ },
+ "matches": [
+  {
+   "album": "Blowout Comb",
+   "artist": "Digable Planets",
+   "charts": [
+    "variety"
+   ],
+   "first": "1995-01-02",
+   "first_chart": "9501|variety",
+   "first_period": "January 2-8, 1995",
+   "last": "1995-01-02",
+   "weeks": 1,
+   "year": 1994
+  },
+  {
+   "album": "Dummy",
+   "artist": "Portishead",
+   "charts": [
+    "variety"
+   ],
+   "first": "1995-01-02",
+   "first_chart": "9501|variety",
+   "first_period": "January 2-8, 1995",
+   "last": "1995-01-30",
+   "weeks": 2,
+   "year": 1994
+  },
+  {
+   "album": "Penthouse",
+   "artist": "Luna",
+   "charts": [
+    "variety"
+   ],
+   "first": "1995-09-04",
+   "first_chart": "9509|variety",
+   "first_period": "September 4-10, 1995",
+   "last": "1995-09-04",
+   "weeks": 1,
+   "year": 1995
+  },
+  {
+   "album": "Wowee Zowee",
+   "artist": "Pavement",
+   "charts": [
+    "variety"
+   ],
+   "first": "1995-05-01",
+   "first_chart": "9505|variety",
+   "first_period": "May 1-7, 1995",
+   "last": "1995-06-05",
+   "weeks": 2,
+   "year": 1995
+  },
+  {
+   "album": "...And Out Come The Wolves",
+   "artist": "Rancid",
+   "charts": [
+    "variety"
+   ],
+   "first": "1995-09-04",
+   "first_chart": "9509|variety",
+   "first_period": "September 4-10, 1995",
+   "last": "1995-10-30",
+   "weeks": 3,
+   "year": 1995
+  },
+  {
+   "album": "Trace",
+   "artist": "Son Volt",
+   "charts": [
+    "americana",
+    "variety"
+   ],
+   "first": "1995-10-02",
+   "first_chart": "9510|americana",
+   "first_period": "October 2-8, 1995",
+   "last": "1995-12-04",
+   "weeks": 4,
+   "year": 1995
+  },
+  {
+   "album": "Odelay",
+   "artist": "Beck",
+   "charts": [
+    "variety"
+   ],
+   "first": "1996-07-01",
+   "first_chart": "9607|variety",
+   "first_period": "July 1-7, 1996",
+   "last": "1996-09-02",
+   "weeks": 3,
+   "year": 1996
+  },
+  {
+   "album": "If You're Feeling Sinister",
+   "artist": "Belle and Sebastian",
+   "charts": [
+    "variety"
+   ],
+   "first": "1997-04-28",
+   "first_chart": "9705|variety",
+   "first_period": "April 28-May 4, 1997",
+   "last": "1997-06-02",
+   "weeks": 2,
+   "year": 1996
+  },
+  {
+   "album": "Endtroducing.....",
+   "artist": "DJ Shadow",
+   "charts": [
+    "electronic-dance",
+    "variety"
+   ],
+   "first": "1996-12-02",
+   "first_chart": "9612|electronic-dance",
+   "first_period": "December 2-8, 1996",
+   "last": "1997-02-03",
+   "weeks": 6,
+   "year": 1996
+  },
+  {
+   "album": "Atliens",
+   "artist": "Outkast",
+   "charts": [
+    "hip-hop"
+   ],
+   "first": "1996-12-02",
+   "first_chart": "9612|hip-hop",
+   "first_period": "December 2-8, 1996",
+   "last": "1996-12-30",
+   "weeks": 2,
+   "year": 1996
+  },
+  {
+   "album": "Emperor Tomato Ketchup",
+   "artist": "Stereolab",
+   "charts": [
+    "variety"
+   ],
+   "first": "1996-04-29",
+   "first_chart": "9605|variety",
+   "first_period": "April 29-May 5, 1996",
+   "last": "1996-06-03",
+   "weeks": 2,
+   "year": 1996
+  },
+  {
+   "album": "Time Out of Mind",
+   "artist": "Bob Dylan",
+   "charts": [
+    "americana",
+    "variety"
+   ],
+   "first": "1997-10-27",
+   "first_chart": "9711|americana",
+   "first_period": "October 27-November 2, 1997",
+   "last": "1998-01-05",
+   "weeks": 5,
+   "year": 1997
+  },
+  {
+   "album": "Perfect from Now On",
+   "artist": "Built to Spill",
+   "charts": [
+    "northwest",
+    "variety"
+   ],
+   "first": "1997-02-03",
+   "first_chart": "9702|northwest",
+   "first_period": "February 3-9, 1997",
+   "last": "1997-03-03",
+   "weeks": 4,
+   "year": 1997
+  },
+  {
+   "album": "Either/Or",
+   "artist": "Elliott Smith",
+   "charts": [
+    "northwest",
+    "variety"
+   ],
+   "first": "1997-03-31",
+   "first_chart": "9704|northwest",
+   "first_period": "March 31-April 6, 1997",
+   "last": "1997-04-28",
+   "weeks": 3,
+   "year": 1997
+  },
+  {
+   "album": "The Lonesome Crowded West",
+   "artist": "Modest Mouse",
+   "charts": [
+    "northwest",
+    "variety"
+   ],
+   "first": "1997-12-01",
+   "first_chart": "9712|northwest",
+   "first_period": "December 1-7, 1997",
+   "last": "1998-02-02",
+   "weeks": 5,
+   "year": 1997
+  },
+  {
+   "album": "Portishead",
+   "artist": "Portishead",
+   "charts": [
+    "electronic-dance",
+    "variety"
+   ],
+   "first": "1997-09-29",
+   "first_chart": "9710|electronic-dance",
+   "first_period": "September 29-October 5, 1997",
+   "last": "1997-10-27",
+   "weeks": 4,
+   "year": 1997
+  },
+  {
+   "album": "Dig Me Out",
+   "artist": "Sleater\u2010Kinney",
+   "charts": [
+    "northwest",
+    "variety"
+   ],
+   "first": "1997-04-28",
+   "first_chart": "9705|variety",
+   "first_period": "April 28-May 4, 1997",
+   "last": "1997-06-02",
+   "weeks": 3,
+   "year": 1997
+  },
+  {
+   "album": "Dots and Loops",
+   "artist": "Stereolab",
+   "charts": [
+    "variety"
+   ],
+   "first": "1997-09-29",
+   "first_chart": "9710|variety",
+   "first_period": "September 29-October 5, 1997",
+   "last": "1997-10-27",
+   "weeks": 2,
+   "year": 1997
+  },
+  {
+   "album": "Moon Safari",
+   "artist": "Air",
+   "charts": [
+    "electronic-dance",
+    "variety"
+   ],
+   "first": "1998-02-02",
+   "first_chart": "9802|variety",
+   "first_period": "February 2 - 8, 1998",
+   "last": "1998-03-30",
+   "weeks": 2,
+   "year": 1998
+  },
+  {
+   "album": "Hello Nasty",
+   "artist": "Beastie Boys",
+   "charts": [
+    "variety"
+   ],
+   "first": "1998-08-03",
+   "first_chart": "9808|variety",
+   "first_period": "August 3 - 9, 1998",
+   "last": "1998-08-31",
+   "weeks": 2,
+   "year": 1998
+  },
+  {
+   "album": "The Boy with the Arab Strap",
+   "artist": "Belle and Sebastian",
+   "charts": [
+    "variety"
+   ],
+   "first": "1998-09-28",
+   "first_chart": "9810|variety",
+   "first_period": "Sept 28 - Oct 4, 1998",
+   "last": "1998-11-02",
+   "weeks": 2,
+   "year": 1998
+  },
+  {
+   "album": "Mermaid Avenue",
+   "artist": "Billy Bragg & Wilco",
+   "charts": [
+    "americana",
+    "variety"
+   ],
+   "first": "1998-06-29",
+   "first_chart": "9807|americana",
+   "first_period": "June 29 - July 5, 1998",
+   "last": "1998-08-03",
+   "weeks": 4,
+   "year": 1998
+  },
+  {
+   "album": "XO",
+   "artist": "Elliott Smith",
+   "charts": [
+    "variety"
+   ],
+   "first": "1998-08-31",
+   "first_chart": "9809|variety",
+   "first_period": "August 31 - Sept 6, 1998",
+   "last": "1998-09-28",
+   "weeks": 2,
+   "year": 1998
+  },
+  {
+   "album": "The Miseducation of Lauryn Hill",
+   "artist": "Lauryn Hill",
+   "charts": [
+    "variety"
+   ],
+   "first": "1998-09-28",
+   "first_chart": "9810|variety",
+   "first_period": "Sept 28 - Oct 4, 1998",
+   "last": "1998-09-28",
+   "weeks": 1,
+   "year": 1998
+  },
+  {
+   "album": "Car Wheels on a Gravel Road",
+   "artist": "Lucinda Williams",
+   "charts": [
+    "americana",
+    "variety"
+   ],
+   "first": "1998-06-29",
+   "first_chart": "9807|americana",
+   "first_period": "June 29 - July 5, 1998",
+   "last": "1998-08-31",
+   "weeks": 5,
+   "year": 1998
+  },
+  {
+   "album": "Mezzanine",
+   "artist": "Massive Attack",
+   "charts": [
+    "electronic-dance",
+    "variety"
+   ],
+   "first": "1998-06-01",
+   "first_chart": "9806|electronic-dance",
+   "first_period": "June 1 - 7, 1998",
+   "last": "1998-06-29",
+   "weeks": 4,
+   "year": 1998
+  },
+  {
+   "album": "Aquemini",
+   "artist": "Outkast",
+   "charts": [
+    "variety"
+   ],
+   "first": "1998-11-02",
+   "first_chart": "9811|variety",
+   "first_period": "November 2 - 8, 1998",
+   "last": "1999-01-04",
+   "weeks": 3,
+   "year": 1998
+  },
+  {
+   "album": "American Water",
+   "artist": "Silver Jews",
+   "charts": [
+    "variety"
+   ],
+   "first": "1998-11-02",
+   "first_chart": "9811|variety",
+   "first_period": "November 2 - 8, 1998",
+   "last": "1998-11-30",
+   "weeks": 2,
+   "year": 1998
+  },
+  {
+   "album": "Midnite Vultures",
+   "artist": "Beck",
+   "charts": [
+    "variety"
+   ],
+   "first": "1999-12-06",
+   "first_chart": "9912|variety",
+   "first_period": "December 6 - December 12, 1999",
+   "last": "2000-01-03",
+   "weeks": 2,
+   "year": 1999
+  },
+  {
+   "album": "13",
+   "artist": "Blur",
+   "charts": [
+    "variety"
+   ],
+   "first": "1999-03-29",
+   "first_chart": "9904|variety",
+   "first_period": "March 29 - April 4, 1999",
+   "last": "1999-05-03",
+   "weeks": 2,
+   "year": 1999
+  },
+  {
+   "album": "Keep It Like a Secret",
+   "artist": "Built to Spill",
+   "charts": [
+    "northwest",
+    "variety"
+   ],
+   "first": "1999-02-01",
+   "first_chart": "9902|northwest",
+   "first_period": "February 1 - 7, 1999",
+   "last": "1999-03-29",
+   "weeks": 6,
+   "year": 1999
+  },
+  {
+   "album": "Play",
+   "artist": "Moby",
+   "charts": [
+    "electronic-dance",
+    "variety"
+   ],
+   "first": "1999-06-28",
+   "first_chart": "9907|electronic-dance",
+   "first_period": "June 28 - July 4, 1999",
+   "last": "1999-08-02",
+   "weeks": 4,
+   "year": 1999
+  },
+  {
+   "album": "Black On Both Sides",
+   "artist": "Mos Def",
+   "charts": [
+    "hip-hop",
+    "variety"
+   ],
+   "first": "1999-11-15",
+   "first_chart": "9911|variety",
+   "first_period": "November 15 - 21, 1999",
+   "last": "2000-01-31",
+   "weeks": 5,
+   "year": 1999
+  },
+  {
+   "album": "The Battle of Los Angeles",
+   "artist": "Rage Against the Machine",
+   "charts": [
+    "variety"
+   ],
+   "first": "2000-01-03",
+   "first_chart": "0001|variety",
+   "first_period": "January 3 - January 9, 2000",
+   "last": "2000-01-03",
+   "weeks": 1,
+   "year": 1999
+  },
+  {
+   "album": "Emergency & I",
+   "artist": "The Dismemberment Plan",
+   "charts": [
+    "variety"
+   ],
+   "first": "1999-11-15",
+   "first_chart": "9911|variety",
+   "first_period": "November 15 - 21, 1999",
+   "last": "2000-01-03",
+   "weeks": 3,
+   "year": 1999
+  },
+  {
+   "album": "The Soft Bulletin",
+   "artist": "The Flaming Lips",
+   "charts": [
+    "variety"
+   ],
+   "first": "1999-06-28",
+   "first_chart": "9907|variety",
+   "first_period": "June 28 - July 4, 1999",
+   "last": "1999-08-02",
+   "weeks": 2,
+   "year": 1999
+  },
+  {
+   "album": "Things Fall Apart",
+   "artist": "The Roots",
+   "charts": [
+    "variety"
+   ],
+   "first": "1999-03-01",
+   "first_chart": "9903|variety",
+   "first_period": "March 1 - 7, 1999",
+   "last": "1999-03-29",
+   "weeks": 2,
+   "year": 1999
+  },
+  {
+   "album": "Voodoo",
+   "artist": "D'Angelo",
+   "charts": [
+    "variety"
+   ],
+   "first": "2000-01-31",
+   "first_chart": "0002|variety",
+   "first_period": "January 31 - February 6, 2000",
+   "last": "2000-01-31",
+   "weeks": 1,
+   "year": 2000
+  },
+  {
+   "album": "Figure 8",
+   "artist": "Elliott Smith",
+   "charts": [
+    "variety"
+   ],
+   "first": "2000-05-01",
+   "first_chart": "0005|variety",
+   "first_period": "May 2000",
+   "last": "2000-05-01",
+   "weeks": 1,
+   "year": 2000
+  },
+  {
+   "album": "The Sophtware Slump",
+   "artist": "Grandaddy",
+   "charts": [
+    "variety"
+   ],
+   "first": "2000-05-01",
+   "first_chart": "0005|variety",
+   "first_period": "May 2000",
+   "last": "2000-05-01",
+   "weeks": 1,
+   "year": 2000
+  }
+ ],
+ "poll_by_year": {
+  "1957": 1,
+  "1959": 3,
+  "1963": 3,
+  "1965": 6,
+  "1966": 4,
+  "1967": 10,
+  "1968": 9,
+  "1969": 11,
+  "1970": 17,
+  "1971": 16,
+  "1972": 13,
+  "1973": 10,
+  "1974": 7,
+  "1975": 12,
+  "1976": 8,
+  "1977": 14,
+  "1978": 10,
+  "1979": 15,
+  "1980": 14,
+  "1981": 9,
+  "1982": 12,
+  "1983": 10,
+  "1984": 15,
+  "1985": 17,
+  "1986": 13,
+  "1987": 16,
+  "1988": 14,
+  "1989": 16,
+  "1990": 19,
+  "1991": 21,
+  "1992": 25,
+  "1993": 21,
+  "1994": 28,
+  "1995": 19,
+  "1996": 15,
+  "1997": 16,
+  "1998": 18,
+  "1999": 15,
+  "2000": 17,
+  "2001": 7,
+  "2002": 16,
+  "2003": 11,
+  "2004": 11,
+  "2005": 16,
+  "2006": 9,
+  "2007": 15,
+  "2008": 6,
+  "2009": 6,
+  "2010": 11,
+  "2011": 9,
+  "2012": 9,
+  "2013": 7,
+  "2014": 8,
+  "2015": 10,
+  "2016": 11,
+  "2017": 10,
+  "2018": 5,
+  "2019": 7,
+  "2020": 9,
+  "2021": 5,
+  "2022": 10,
+  "2023": 2,
+  "2024": 10
+ },
+ "poll_total": 739,
+ "window": [
+  1994,
+  2000
+ ]
+}

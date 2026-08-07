@@ -26,6 +26,13 @@ Supporting directories:
 - `docs/index.html` — a written-up summary of the findings (also the GitHub Pages site)
 - `docs/browser.html` — a searchable browser over every entry, with a permalink per
   artist (`#/artist/bill-frisell`) and per chart (`#/chart/9603|electronic-dance`)
+- `docs/kexp.html` — the 2025 KEXP listener poll checked against these charts: of the
+  128 poll albums released inside the window the charts cover, 40 (31%) were
+  demonstrably in KCMU rotation at the time. Built by `scripts/kexp_overlap.py`,
+  which takes the poll CSV as an argument — **the poll itself is deliberately not
+  vendored here.** The charts are a factual record from public archives; the poll is
+  KEXP's own listener vote, on different footing, so the repository carries the
+  derived finding and not the ballot
 - `docs/kcmu_charts.csv` — **generated, do not edit.** GitHub Pages publishes `/docs`
   only, so the browser cannot reach `data/`. `parse_charts.py` writes both copies in
   one run; that is what stops them drifting

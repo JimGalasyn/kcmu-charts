@@ -4,7 +4,7 @@ Recovered airplay charts from **KCMU 90.3 FM**, the University of Washington sta
 
 KEXP's public playlist API begins around 2001. Everything before that — the KCMU era — was widely assumed to be gone. It isn't: KCMU published its own charts to the web from January 1995, and the Wayback Machine kept them.
 
-**7,847 chart entries · 2,534 distinct artists · 356 charts · 8 genres · Jan 1995 – Jul 2000**
+**7,847 chart entries · 2,410 distinct artists · 356 charts · 8 genres · Jan 1995 – Jul 2000**
 
 ## The data
 

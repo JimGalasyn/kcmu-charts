@@ -40,8 +40,13 @@ MONTHLINE = re.compile(
 
 
 def clean(s):
+    # Strips a trailing hyphen because the italic layout splits on the <i>/<em>
+    # tag, not on the separator: "Artist - <i>Title</i> - Label" leaves the dash
+    # clinging to the artist and to the label. No artist or title in the corpus
+    # legitimately begins or ends with one. The \xa0 in the strip set is a
+    # non-breaking space from &nbsp;, which \s+ above does not collapse.
     s = re.sub(r"<[^>]+>", " ", s)
-    return re.sub(r"\s+", " ", html.unescape(s)).strip(" ., ")
+    return re.sub(r"\s+", " ", html.unescape(s)).strip(" ., -")
 
 
 def parse(path):
@@ -74,8 +79,11 @@ def parse(path):
             if lab:
                 txt = txt[: lab.start()].strip()
             parts = re.split(r"\s+-\s+", txt, maxsplit=1)
-            artist = parts[0].strip()
-            title = parts[1].strip() if len(parts) > 1 else ""
+            # clean(), not .strip(): the separator needs whitespace on both sides, so an
+            # entry with a dangling one and no title ("Macha Loved Bedhead - (Jetset)")
+            # does not split and keeps the dash. Matches the italic branch's handling.
+            artist = clean(parts[0])
+            title = clean(parts[1]) if len(parts) > 1 else ""
         if artist and len(artist) < 90:
             rows.append((artist, title, label))
     return period, rows

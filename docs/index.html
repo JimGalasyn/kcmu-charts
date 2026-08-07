@@ -1,0 +1,546 @@
+<title>Recovering the KCMU Playlists</title>
+<style>
+  :root {
+    --ground: #EEF1F4;
+    --surface: #FFFFFF;
+    --sunk: #E3E8ED;
+    --ink: #0E141B;
+    --muted: #5A6875;
+    --hair: #C9D2DA;
+    --signal: #B85F0E;
+    --confirm: #216C68;
+    --shadow: 0 1px 2px rgba(14, 20, 27, .06), 0 8px 24px -12px rgba(14, 20, 27, .18);
+
+    --display: ui-sans-serif, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --body: Georgia, "Iowan Old Style", ui-serif, "Times New Roman", serif;
+    --data: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C1218;
+      --surface: #141C25;
+      --sunk: #1B2530;
+      --ink: #E3EAF1;
+      --muted: #94A4B4;
+      --hair: #2B3844;
+      --signal: #E39B4B;
+      --confirm: #5FB0AA;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C1218;
+    --surface: #141C25;
+    --sunk: #1B2530;
+    --ink: #E3EAF1;
+    --muted: #94A4B4;
+    --hair: #2B3844;
+    --signal: #E39B4B;
+    --confirm: #5FB0AA;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 1.25rem 6rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; }
+  .col { max-width: 34rem; }
+
+  h1, h2, h3, .eyebrow, .dial-num, th { font-family: var(--display); }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 3.9rem);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: 1.02;
+    text-wrap: balance;
+    margin: 0 0 1rem;
+  }
+  h2 {
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 750;
+    letter-spacing: -.022em;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin: 0 0 .6rem;
+  }
+  h3 {
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    margin: 0 0 .5rem;
+  }
+  p { margin: 0 0 1.1rem; }
+  a { color: var(--signal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 2px;
+  }
+
+  .eyebrow {
+    font-family: var(--data);
+    font-size: .69rem;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--signal);
+    display: block;
+    margin-bottom: .7rem;
+  }
+
+  /* ---- hero dial ---- */
+  header { padding: 4.5rem 0 3rem; }
+  .dial { width: 100%; height: auto; display: block; margin: 0 0 2.5rem; max-width: 46rem; }
+  .dial .tick { stroke: var(--hair); stroke-width: 1.5; }
+  .dial .tick-major { stroke: var(--muted); stroke-width: 1.5; }
+  .dial .rail { stroke: var(--hair); stroke-width: 1.5; }
+  .dial .lab { fill: var(--muted); font-family: var(--data); font-size: 9px; letter-spacing: .06em; }
+  .dial .needle { stroke: var(--signal); stroke-width: 2.5; }
+  .dial .needle-glow { stroke: var(--signal); stroke-width: 7; opacity: .18; }
+  .dial .callsign { fill: var(--signal); font-family: var(--display); font-size: 13px; font-weight: 800; letter-spacing: -.02em; }
+  .lede { font-size: 1.19rem; color: var(--muted); max-width: 36rem; }
+  .lede strong { color: var(--ink); font-weight: 400; }
+
+  section { padding: 3.25rem 0 0; }
+  .rule { border: 0; border-top: 1px solid var(--hair); margin: 3.25rem 0 0; }
+
+  /* ---- source ledger ---- */
+  .ledger { display: grid; gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 3px; overflow: hidden; margin: 1.75rem 0 0; }
+  .src { background: var(--surface); padding: 1.1rem 1.25rem; display: grid; grid-template-columns: 1fr auto; gap: .3rem 1rem; align-items: baseline; }
+  .src-name { font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: -.015em; }
+  .src-note { grid-column: 1 / -1; font-size: .92rem; color: var(--muted); line-height: 1.5; }
+  .yield { font-family: var(--data); font-size: .72rem; font-weight: 600; letter-spacing: .04em; padding: .2rem .5rem; border-radius: 2px; white-space: nowrap; }
+  .got { background: color-mix(in srgb, var(--confirm) 15%, transparent); color: var(--confirm); }
+  .none { background: var(--sunk); color: var(--muted); }
+  .offline { background: color-mix(in srgb, var(--signal) 15%, transparent); color: var(--signal); }
+
+  /* ---- chart cards ---- */
+  .charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.25rem; margin: 1.75rem 0 0; }
+  .chart { background: var(--surface); border: 1px solid var(--hair); border-radius: 3px; box-shadow: var(--shadow); overflow: hidden; }
+  .chart-hd { padding: .85rem 1rem .7rem; border-bottom: 1px solid var(--hair); background: var(--sunk); }
+  .chart-when { font-family: var(--data); font-size: .71rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  ol.rows { list-style: none; counter-reset: r; margin: 0; padding: .5rem 0; }
+  ol.rows li {
+    counter-increment: r;
+    display: grid;
+    grid-template-columns: 1.6rem 1fr;
+    gap: .55rem;
+    padding: .4rem 1rem;
+    font-family: var(--data);
+    font-size: .79rem;
+    line-height: 1.4;
+    align-items: baseline;
+  }
+  ol.rows li::before {
+    content: counter(r);
+    color: var(--muted);
+    font-size: .7rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .artist { font-weight: 600; }
+  .title { font-style: italic; }
+  .label { color: var(--muted); font-size: .73rem; }
+  mark { background: color-mix(in srgb, var(--signal) 22%, transparent); color: inherit; padding: 0 .15em; border-radius: 2px; }
+
+  /* ---- confirmed matches ---- */
+  .matches { display: grid; gap: .5rem; margin: 1.75rem 0 0; }
+  .match {
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-left: 3px solid var(--confirm);
+    border-radius: 3px;
+    padding: .8rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .25rem 1rem;
+    align-items: baseline;
+  }
+  .match-track { font-family: var(--data); font-size: .84rem; font-weight: 600; }
+  .match-where { font-family: var(--data); font-size: .71rem; color: var(--confirm); letter-spacing: .03em; white-space: nowrap; }
+  .match-line { grid-column: 1 / -1; font-family: var(--data); font-size: .74rem; color: var(--muted); line-height: 1.45; }
+
+  .stat-row { display: flex; flex-wrap: wrap; gap: 2.25rem; margin: 1.75rem 0 0; }
+  .stat-n { font-family: var(--display); font-size: 2.5rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat-l { font-family: var(--data); font-size: .71rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-top: .4rem; max-width: 11rem; line-height: 1.4; }
+
+  details { border-top: 1px solid var(--hair); }
+  details summary { cursor: pointer; padding: .8rem 0; font-family: var(--data); font-size: .78rem; letter-spacing: .04em; color: var(--muted); }
+  details summary:hover { color: var(--signal); }
+  .scroller { overflow-x: auto; }
+  code { font-family: var(--data); font-size: .82em; background: var(--sunk); padding: .1em .35em; border-radius: 2px; }
+  .path { font-family: var(--data); font-size: .78rem; color: var(--muted); line-height: 1.7; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header>
+  <svg class="dial" viewBox="0 0 640 74" role="img" aria-label="FM tuning dial with the needle at 90.3, KCMU's frequency">
+    <line class="rail" x1="12" y1="52" x2="628" y2="52" />
+    <g>
+      <line class="tick-major" x1="12"  y1="38" x2="12"  y2="52" /><text class="lab" x="12"  y="68" text-anchor="middle">88.0</text>
+      <line class="tick"       x1="89"  y1="44" x2="89"  y2="52" />
+      <line class="tick-major" x1="166" y1="38" x2="166" y2="52" /><text class="lab" x="166" y="68" text-anchor="middle">89.0</text>
+      <line class="tick"       x1="243" y1="44" x2="243" y2="52" />
+      <line class="tick-major" x1="320" y1="38" x2="320" y2="52" /><text class="lab" x="320" y="68" text-anchor="middle">90.0</text>
+      <line class="tick"       x1="397" y1="44" x2="397" y2="52" />
+      <line class="tick-major" x1="474" y1="38" x2="474" y2="52" /><text class="lab" x="474" y="68" text-anchor="middle">91.0</text>
+      <line class="tick"       x1="551" y1="44" x2="551" y2="52" />
+      <line class="tick-major" x1="628" y1="38" x2="628" y2="52" /><text class="lab" x="628" y="68" text-anchor="middle">92.0</text>
+    </g>
+    <line class="needle-glow" x1="343" y1="12" x2="343" y2="58" />
+    <line class="needle"      x1="343" y1="12" x2="343" y2="58" />
+    <text class="callsign" x="343" y="8" text-anchor="middle">KCMU 90.3</text>
+  </svg>
+
+  <h1>The playlists survived.</h1>
+  <p class="lede"><strong>KCMU published its own charts to the web from 1995, and the Wayback Machine kept them.</strong> 356 charts recovered — eight genres, 64 months, 7,847 entries, 2,534 distinct artists — plus year-end listener countdowns, a Top 90.3 of the decade, and 99 station reports printed in <em>CMJ</em>. Twenty-five artists from your playlist turn up in the real charts, several down to the exact track.</p>
+</header>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">What was searched</span>
+  <h2>Four leads, two of them live</h2>
+  <div class="col">
+    <p>KCMU broadcast from the University of Washington from 1972 until it became KEXP in 2001. Its logs turned out to be split across a defunct website, a trade magazine, and two boxes in a library basement.</p>
+  </div>
+
+  <div class="ledger">
+    <div class="src">
+      <span class="src-name">kcmu.org, via the Wayback Machine</span>
+      <span class="yield got">7,847 entries</span>
+      <span class="src-note">The station's own site, first captured November 1996 but carrying charts back to the week of 2 January 1995. 356 pages recovered across eight genre charts — Variety 60, Northwest 10, RPM 10 (electronic), Americana 40, Blues 10, World 10, Beat Box 10, Jazz 10 — plus year-end countdowns and a decade retrospective. This is the primary source and by far the cleanest.</span>
+    </div>
+    <div class="src">
+      <span class="src-name">CMJ New Music Report, via World Radio History</span>
+      <span class="yield got">99 issues</span>
+      <span class="src-note">KCMU reported its charts weekly to CMJ, whose back issues are scanned as PDFs. 297 issues cover the KCMU era; 99 contain a KCMU station report, with the music director named. OCR on the two-column layout is rough — some blocks interleave with neighbouring stations.</span>
+    </div>
+    <div class="src">
+      <span class="src-name">UW Libraries Special Collections</span>
+      <span class="yield offline">Offline only</span>
+      <span class="src-note">"KCMU records, 1971–1992" — 1.47 cubic feet, two boxes, explicitly including music play-lists and broadcasting schedules. Mostly open access; only the volunteer, internship, and personnel files are restricted. This is the sole route to the pre-web 1980s, and it requires a visit or a reproduction request.</span>
+    </div>
+    <div class="src">
+      <span class="src-name">College Radio Archive on SoundCloud</span>
+      <span class="yield none">Empty</span>
+      <span class="src-note">Indexed as a KCMU aircheck collection and cited in several histories, but the set and the entire uploader account contain zero tracks. Checked while signed in — not a permissions issue.</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">Cross-reference</span>
+  <h2>Your playlist against the real charts</h2>
+  <div class="col">
+    <p>Matching the artists on <em>Forgotten Tracks of KCMU</em> against everything harvested puts 25 of them in charts the station actually published. Six land on the exact track you remembered. Matching is against the structured artist field, not raw text — loose substring matching inflates the count by hitting words buried inside album titles.</p>
+  </div>
+
+  <div class="stat-row">
+    <div>
+      <div class="stat-n">25<span style="color:var(--muted);font-size:1.4rem">/46</span></div>
+      <div class="stat-l">Playlist artists found in KCMU charts</div>
+    </div>
+    <div>
+      <div class="stat-n">6</div>
+      <div class="stat-l">Confirmed down to the exact track</div>
+    </div>
+    <div>
+      <div class="stat-n">2,534</div>
+      <div class="stat-l">Distinct artists recovered</div>
+    </div>
+  </div>
+
+  <div class="matches">
+    <div class="match">
+      <span class="match-track">Sky Cries Mary — "Shipwrecked"</span>
+      <span class="match-where">Top 90.3 of 1994, #3</span>
+      <span class="match-line">Sky Cries Mary · <span class="title">Shipwrecked</span> · This Timeless Turning · World Domination</span>
+    </div>
+    <div class="match">
+      <span class="match-track">Land of the Loops — "Multi-Family Garage Sale"</span>
+      <span class="match-where">Northwest 10, Jul 1995</span>
+      <span class="match-line">Land Of The Loops · <span class="title">Multi-Family Garage Sale</span> · Up — also Top 90.3 of 1995, and <span class="title">Bundle Of Joy</span> on the RPM 10 in Aug 1996</span>
+    </div>
+    <div class="match">
+      <span class="match-track">Halou — "We Only Love You"</span>
+      <span class="match-where">RPM 10 + Variety 60, May 1999</span>
+      <span class="match-line">Halou · <span class="title">We Only Love You</span> · Bedazzled — charted on two lists the same month</span>
+    </div>
+    <div class="match">
+      <span class="match-track">The Golden Palominos — "Little Suicides"</span>
+      <span class="match-where">Top 90.3 of 1994</span>
+      <span class="match-line">Golden Palominos · <span class="title">Little Suicides</span> · Pure · Restless</span>
+    </div>
+    <div class="match">
+      <span class="match-track">µ-Ziq — <span style="font-weight:400">charted on</span> Lunatic Harness</span>
+      <span class="match-where">RPM 10, Sept 1997</span>
+      <span class="match-line">Mu-Ziq · <span class="title">Lunatic Harness</span> · Astralwerks</span>
+    </div>
+    <div class="match">
+      <span class="match-track">Heather Duby — "Post To Wire"</span>
+      <span class="match-where">Northwest 10, Jan 2000</span>
+      <span class="match-line">Heather Duby · <span class="title">Post To Wire</span> · Sub Pop</span>
+    </div>
+    <div class="match">
+      <span class="match-track">The Melody Unit — "Odds Against Tomorrow"</span>
+      <span class="match-where">Northwest 10, Jan 2000</span>
+      <span class="match-line">The Melody Unit · <span class="title">Odds Against Tomorrow</span> · self-released</span>
+    </div>
+  </div>
+
+  <details>
+    <summary>Also confirmed — 19 more artists, with their charting records</summary>
+    <div class="path" style="padding-bottom:1.2rem">
+      <strong>Flying Saucer Attack</strong> — 9 charts (<span class="title">Further</span> 1995, <span class="title">Mirror</span> 2000) · <strong>Future Sound of London</strong> — 8 (<span class="title">Dead Cities</span>, Nov 96 – Jan 97) · <strong>µ-Ziq</strong> — 7 (<span class="title">In Pine Effect</span> 1995, <span class="title">Lunatic Harness</span> 1997) · <strong>Bowery Electric</strong> — 6 (<span class="title">Bowery Electric</span> 1995, <span class="title">Lushlife</span> 2000) · <strong>Laika</strong> — 5 (<span class="title">Silver Apples Of The Moon</span>, Jan 1995) · <strong>Lida Husik</strong> — 4 (<span class="title">Joyride</span>, Apr 1995) · <strong>Bardo Pond</strong> — 4 (<span class="title">Amanita</span>, 1996) · <strong>Sky Cries Mary</strong> — 4 (<span class="title">Moonbathing On Sleeping Leaves</span>, 1997) · <strong>Strange Cargo</strong> — 2 (<span class="title">Hinterland</span>, Mar 1996) · <strong>Natural Calamity</strong> — 2 (<span class="title">Peach Head</span>, 1998) · <strong>Stew / The Negro Problem</strong> — 2 (<span class="title">Joys &amp; Concerns</span>, 1999) · <strong>GusGus</strong> — 2 (<span class="title">This Is Normal</span>, 1999) · <strong>Tom Waits</strong> — 2 (<span class="title">Mule Variations</span>, 1999) · <strong>Morcheeba</strong> (<span class="title">Who Can You Trust?</span> 1996; <span class="title">Big Calm</span> #3 for 1998) · <strong>Golden Palominos</strong> (<span class="title">Dead Inside</span>, 1997)
+      <br /><br />
+      Found only in the CMJ station reports, not on kcmu.org: <strong>Skinny Puppy</strong> (Nov 1990) · <strong>Consolidated</strong> (Jul 1990) · <strong>Algebra Suicide</strong> (Aug 1994) · <strong>Perfume Tree</strong> (Aug 1995) · <strong>Sissy Bar</strong> (Jun 1999) · <strong>The Bongos</strong> (Nov 1983)
+    </div>
+  </details>
+
+  <details>
+    <summary>Not found — 21 artists</summary>
+    <div class="path" style="padding-bottom:1.2rem">
+      The Irresistible Force · My Life With The Thrill Kill Kult · Cindy Lee Berryhill · Psychic TV · Rainer Maria · SSQ · The Legendary Pink Dots · The Karminsky Experience · Steinski · Emergency Broadcast Network · West Indian Girl · 60 Channels / The Angel · Dot Allison · Danielle Dax · Spacemen 3 · Mr. Scruff · John Holt · Freezepop · plus Air, Saba and We, whose names are too generic to match safely.
+      <br /><br />
+      Absence here is not evidence they went unplayed. The recovered charts start in 1995 and cover station-level rotation only — Psychic TV, SSQ, Danielle Dax and The Bongos all belong to the 1980s, which no online source documents.
+    </div>
+  </details>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">The RPM 10 · 1996–2000</span>
+  <h2>The electronic chart, which is the one you want</h2>
+  <div class="col">
+    <p>KCMU described the RPM 10 as "the latest releases in techno, trip hop, acid jazz, ambient, dub, and related rhythmic grooves," folded into the daily Variety Mix and fed to the shows <em>Expansions</em> and <em>Sonarchy</em>. The chart was reported weekly to <em>CMJ</em>, which is why both archives carry it. Thirty-three monthly charts survive, March 1996 through February 2000 — the closest thing to a documented spine for your playlist.</p>
+  </div>
+
+  <div class="charts">
+    <article class="chart">
+      <div class="chart-hd"><h3>RPM 10</h3><span class="chart-when">Week of March 4–10, 1996</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">(Various)</span> <span class="title">Earthrise.Ntone.1</span><br /><span class="label">Instinct</span></span></li>
+        <li><span><span class="artist">Loop Guru</span> <span class="title">Amrita</span><br /><span class="label">North South</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Three A.D.</span><br /><span class="label">Waveform</span></span></li>
+        <li><span><span class="artist">Spacetime Continuum</span> <span class="title">Emit Ecaps</span><br /><span class="label">Astralwerks</span></span></li>
+        <li><span><span class="artist">Harold Budd / Hector Zazou</span> <span class="title">Glyph</span><br /><span class="label">Made To Measure</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Loungin' V.2</span><br /><span class="label">New Breed</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Freezone 2</span><br /><span class="label">SSR Freezone</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">If Ya Can't Stand The Beat</span><br /><span class="label">Ninja Tune USA</span></span></li>
+        <li><span><mark><span class="artist">Strange Cargo</span> <span class="title">Hinterland</span></mark><br /><span class="label">Discovery</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Sourcelab</span><br /><span class="label">Source / Virgin France</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>RPM 10</h3><span class="chart-when">Week of Sept 1–7, 1997</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Greg Garing</span> <span class="title">Alone</span><br /><span class="label">Paladin / Revolution</span></span></li>
+        <li><span><mark><span class="artist">µ-Ziq</span> <span class="title">Lunatic Harness</span></mark><br /><span class="label">Astralwerks</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">East-Westercism</span><br /><span class="label">Blue Angel</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Freezone 4: Dangerous Lullabies</span><br /><span class="label">SSR / Crammed Discs</span></span></li>
+        <li><span><span class="artist">Mouse On Mars</span> <span class="title">Autoditacker</span><br /><span class="label">Thrill Jockey</span></span></li>
+        <li><span><span class="artist">Pierre Henry / Michel Colombier</span> <span class="title">Métamorphose</span><br /><span class="label">FFRR</span></span></li>
+        <li><span><span class="artist">Photek</span> <span class="title">Modus Operandi</span><br /><span class="label">Astralwerks</span></span></li>
+        <li><span><span class="artist">DJs Wally &amp; Swingsett</span> <span class="title">Dog Leg Left</span><br /><span class="label">Ubiquity</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Offering</span><br /><span class="label">!K7</span></span></li>
+        <li><span><span class="artist">Beanfield</span> <span class="title">Beanfield</span><br /><span class="label">Compost</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>RPM 10</h3><span class="chart-when">Week of Jan 3–9, 2000</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Krust</span> <span class="title">Coded Language</span><br /><span class="label">Talkin Loud / Island</span></span></li>
+        <li><span><span class="artist">Alex Gopher</span> <span class="title">You, My Baby &amp; I</span><br /><span class="label">V2</span></span></li>
+        <li><span><span class="artist">Andrea Parker</span> <span class="title">Kiss My Arp</span><br /><span class="label">Beggars Banquet / Mo'Wax</span></span></li>
+        <li><span><span class="artist">Air Cuba</span> <span class="title">Leap of Faith</span><br /><span class="label">4AD</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Jet Society</span><br /><span class="label">Eighteenth Street Lounge</span></span></li>
+        <li><span><span class="artist">Kid Loco</span> <span class="title">Presents Jesus Life For Children</span><br /><span class="label">Atlantic</span></span></li>
+        <li><span><span class="artist">Baby Mammoth</span> <span class="title">Motion Without Pain</span><br /><span class="label">Pork</span></span></li>
+        <li><span><span class="artist">Aphrodite</span> <span class="title">Aphrodite</span><br /><span class="label">Gee Street / V2</span></span></li>
+        <li><span><span class="artist">Kid Loco</span> <span class="title">DJ-Kicks</span><br /><span class="label">Stud!o K7</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">The New Latinaires 2</span><br /><span class="label">Ubiquity</span></span></li>
+      </ol>
+    </article>
+  </div>
+
+  <p class="path" style="margin-top:1.4rem">Most-charted RPM artists across the run: Kid Loco and Photek (4 charts each), then Krust, Loop Guru, Future Sound of London, Sharpshooters, Tricky, DJ Shadow and Amon Tobin (3 each).</p>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">The other seven charts</span>
+  <h2>How wide the rotation actually was</h2>
+  <div class="col">
+    <p>The genre split is the real surprise. KCMU ran the Variety 60 as its main list and kept separate charts for Northwest, Americana, Blues, World, Beat Box and Jazz — so zydeco, Egyptian pop, Mississippi hill-country blues and drum &amp; bass were all in rotation the same week. Any reconstruction built by genre adjacency alone, mine included, misses this completely.</p>
+  </div>
+
+  <div class="charts">
+    <article class="chart">
+      <div class="chart-hd"><h3>Variety 60</h3><span class="chart-when">Week of Jan 2–8, 1995 · earliest surviving chart</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Mike Johnson</span> <span class="title">Where Am I?</span><br /><span class="label">Up</span></span></li>
+        <li><span><span class="artist">Ass Ponys</span> <span class="title">Electric Rock Music</span><br /><span class="label">A&amp;M</span></span></li>
+        <li><span><mark><span class="artist">Laika</span> <span class="title">Silver Apples Of The Moon</span></mark><br /><span class="label">Too Pure</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">The Big Bang</span><br /><span class="label">Ellipsis Arts</span></span></li>
+        <li><span><span class="artist">The Schramms</span> <span class="title">Little Apocalypse</span><br /><span class="label">ESD</span></span></li>
+        <li><span><span class="artist">Jessamine</span> <span class="title">Jessamine</span><br /><span class="label">Kranky</span></span></li>
+        <li><span><span class="artist">Bill Monroe</span> <span class="title">Music Of Bill Monroe</span><br /><span class="label">MCA</span></span></li>
+        <li><span><span class="artist">Portishead</span> <span class="title">Dummy</span><br /><span class="label">Go! Discs / London</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>Northwest 10</h3><span class="chart-when">Week of June 3–9, 1996</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Bill Frisell</span> <span class="title">Quartet</span><br /><span class="label">Nonesuch</span></span></li>
+        <li><span><span class="artist">FoMoFlo</span> <span class="title">Slug &amp; Firearms</span><br /><span class="label">God Mountain</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Endless Records Compilation</span><br /><span class="label">Endless</span></span></li>
+        <li><span><mark><span class="artist">Land Of The Loops</span> <span class="title">Bundle Of Joy</span></mark><br /><span class="label">Up</span></span></li>
+        <li><span><span class="artist">Bikini Kill</span> <span class="title">Reject All American</span><br /><span class="label">Kill Rock Stars</span></span></li>
+        <li><span><span class="artist">Citizens' Utilities</span> <span class="title">Lost And Foundered</span><br /><span class="label">Mute America</span></span></li>
+        <li><span><span class="artist">Modest Mouse</span> <span class="title">This Is A Long Drive…</span><br /><span class="label">Up</span></span></li>
+        <li><span><span class="artist">Dub Narcotic Sound System</span> <span class="title">Boot Party</span><br /><span class="label">K Records</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>World 10</h3><span class="chart-when">Week of Apr 28 – May 4, 1997</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Cubanismo!</span> <span class="title">Malembe</span><br /><span class="label">Hannibal</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">2 Heavyweight</span><br /><span class="label">Blood &amp; Fire</span></span></li>
+        <li><span><span class="artist">Natacha Atlas</span> <span class="title">Diaspora</span><br /><span class="label">MCA</span></span></li>
+        <li><span><span class="artist">The Klezmatics</span> <span class="title">Possessed</span><br /><span class="label">Xenophile</span></span></li>
+        <li><span><span class="artist">Khac Chi Ensemble</span> <span class="title">Moonlight In Vietnam</span><br /><span class="label">Henry Street</span></span></li>
+        <li><span><span class="artist">Jade Bridge</span> <span class="title">Ambush On All Sides</span><br /><span class="label">Henry Street</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Klezmania</span><br /><span class="label">Shanachie</span></span></li>
+        <li><span><span class="artist">(Various)</span> <span class="title">Secret Museum Of Mankind, Vol. 4</span><br /><span class="label">Yazoo</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>Beat Box 10</h3><span class="chart-when">Week of Jul 29 – Aug 4, 1996</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Nas</span> <span class="title">If I Ruled The World</span><br /><span class="label">Columbia</span></span></li>
+        <li><span><span class="artist">A Tribe Called Quest</span> <span class="title">1nce Again</span><br /><span class="label">Jive</span></span></li>
+        <li><span><span class="artist">High School High</span> <span class="title">LP Cuts</span><br /><span class="label">Big Beat</span></span></li>
+        <li><span><span class="artist">Luciano</span> <span class="title">Who Could It Be</span><br /><span class="label">Island</span></span></li>
+        <li><span><span class="artist">Crucial Conflict</span> <span class="title">Hay</span><br /><span class="label">Pallas</span></span></li>
+        <li><span><span class="artist">Sadat X</span> <span class="title">Hang 'Em High</span><br /><span class="label">Loud</span></span></li>
+        <li><span><span class="artist">Outkast</span> <span class="title">Elevators</span><br /><span class="label">LaFace</span></span></li>
+        <li><span><span class="artist">Key Kool &amp; Rhettmatic</span> <span class="title">Head Trip</span><br /><span class="label">Up Above</span></span></li>
+      </ol>
+    </article>
+  </div>
+
+  <p class="path" style="margin-top:1.4rem">Most-charted artists across all eight lists: Bill Frisell (24 appearances), Guy Davis (19), Whiskeytown (18), Ted Hawkins and <strong>The Walkabouts</strong> (17), Lambchop and Kelly Joe Phelps (16), then Tricky, Jessamine, Silkworm, Buck Owens and Alvin Youngblood Hart (15 each).</p>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">Listener countdowns</span>
+  <h2>The Top 90.3, aired every New Year's Day</h2>
+  <div class="col">
+    <p>Year-end singles charts voted by listeners and staff survive for 1994 through 1998, alongside a Top 90.3 albums-of-the-decade poll. These skew far more toward the canonical KCMU than your playlist does — which is itself the point about what your collection deliberately leaves out.</p>
+  </div>
+
+  <div class="charts">
+    <article class="chart">
+      <div class="chart-hd"><h3>Top 90.3 of the 1990s</h3><span class="chart-when">Albums · listener vote</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Nirvana</span> <span class="title">Nevermind</span></span></li>
+        <li><span><span class="artist">Radiohead</span> <span class="title">OK Computer</span></span></li>
+        <li><span><span class="artist">Built to Spill</span> <span class="title">Perfect From Now On</span></span></li>
+        <li><span><span class="artist">My Bloody Valentine</span> <span class="title">Loveless</span></span></li>
+        <li><span><span class="artist">Beck</span> <span class="title">Odelay</span></span></li>
+        <li><span><span class="artist">Pavement</span> <span class="title">Slanted and Enchanted</span></span></li>
+        <li><span><span class="artist">Elliott Smith</span> <span class="title">Either/Or</span></span></li>
+        <li><span><span class="artist">Jeff Buckley</span> <span class="title">Grace</span></span></li>
+        <li><span><span class="artist">Pearl Jam</span> <span class="title">Ten</span></span></li>
+        <li><span><span class="artist">Built to Spill</span> <span class="title">There's Nothing Wrong With Love</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>Top 90.3 of 1994</h3><span class="chart-when">Singles · listener vote</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">G. Love &amp; Special Sauce</span> <span class="title">Baby's Got Sauce</span><br /><span class="label">OKeh</span></span></li>
+        <li><span><span class="artist">MC Solaar</span> <span class="title">Nouveau Western</span><br /><span class="label">Cohiba / Island</span></span></li>
+        <li><span><mark><span class="artist">Sky Cries Mary</span> <span class="title">Shipwrecked</span></mark><br /><span class="label">World Domination</span></span></li>
+        <li><span><span class="artist">Nirvana</span> <span class="title">Where Did You Sleep Last Night</span><br /><span class="label">DGC</span></span></li>
+        <li><span><span class="artist">Lisa Germano</span> <span class="title">A Psychopath</span><br /><span class="label">4AD</span></span></li>
+        <li><span><span class="artist">Hector Zazou</span> <span class="title">I'll Strangle You</span><br /><span class="label">Tristar</span></span></li>
+        <li><span><span class="artist">Johnny Cash</span> <span class="title">Man Who Wouldn't Cry</span><br /><span class="label">American</span></span></li>
+        <li><span><span class="artist">Iris DeMent</span> <span class="title">Sweet Is The Melody</span><br /><span class="label">Warner</span></span></li>
+        <li><span><span class="artist">Beastie Boys</span> <span class="title">Sabotage</span><br /><span class="label">Grand Royal / Capitol</span></span></li>
+        <li><span><span class="artist">Jeff Buckley</span> <span class="title">So Real</span><br /><span class="label">Columbia</span></span></li>
+      </ol>
+    </article>
+
+    <article class="chart">
+      <div class="chart-hd"><h3>Top 90.3 of 1997</h3><span class="chart-when">Singles · listener vote</span></div>
+      <ol class="rows">
+        <li><span><span class="artist">Built To Spill</span> <span class="title">Kicked It In the Sun</span><br /><span class="label">Warner Bros.</span></span></li>
+        <li><span><span class="artist">Elliott Smith</span> <span class="title">Angeles</span><br /><span class="label">Kill Rock Stars</span></span></li>
+        <li><span><span class="artist">Modest Mouse</span> <span class="title">Polar Opposites</span><br /><span class="label">Up</span></span></li>
+        <li><span><span class="artist">Yo La Tengo</span> <span class="title">Moby Octopad</span><br /><span class="label">Matador</span></span></li>
+        <li><span><span class="artist">Cornershop</span> <span class="title">Brimful of Asha</span><br /><span class="label">Luaka Bop / Warner</span></span></li>
+        <li><span><span class="artist">Sleater-Kinney</span> <span class="title">Dig Me Out</span><br /><span class="label">Kill Rock Stars</span></span></li>
+        <li><span><span class="artist">764-HERO</span> <span class="title">Wait Until 5</span><br /><span class="label">Up</span></span></li>
+        <li><span><span class="artist">Old 97's</span> <span class="title">Time Bomb</span><br /><span class="label">Elektra</span></span></li>
+        <li><span><span class="artist">Ben Harper</span> <span class="title">Widow Of A Living Man</span><br /><span class="label">Virgin</span></span></li>
+        <li><span><span class="artist">Portishead</span> <span class="title">All Mine</span><br /><span class="label">Go! Beat / London</span></span></li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">Gaps</span>
+  <h2>What is still missing</h2>
+  <div class="col">
+    <p><strong>The 1980s.</strong> Nothing from the decade that shaped the taste in question is online in chart form. CMJ's own archive skips 1985–87 entirely and holds one issue from 1988. The UW boxes are the only known route, and they stop at 1992. This is where Psychic TV, SSQ, Danielle Dax, The Legendary Pink Dots and The Bongos would be documented, if anywhere.</p>
+    <p><strong>1992 and 1993.</strong> World Radio History has no CMJ issues at all for those two years, and kcmu.org did not exist yet. The web charts begin the week of 2 January 1995.</p>
+    <p><strong>Individual DJ shows.</strong> The recovered charts are station-level rotation, not what any one host played on a given night. <em>Expansions</em> and <em>Sonarchy</em> are named in the RPM chart blurbs, but their own logs were not published.</p>
+    <p><strong>Airchecks.</strong> No recordings surfaced. The one indexed collection is empty.</p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section>
+  <span class="eyebrow">Reproducing this</span>
+  <h2>Where the harvest lives</h2>
+  <div class="col">
+    <p>Everything is on disk in the session scratchpad, along with the scripts that produced it. The Wayback CDX index must be filtered to <code>statuscode:200</code> — the unfiltered index is full of 404 captures, which is what made the first pass fail.</p>
+  </div>
+  <p class="path">
+    <strong>kcmu_charts.py</strong> — scrapes kcmu.org chart pages from the Wayback Machine, caching raw HTML<br />
+    <strong>parse_charts.py</strong> — parses all three chart layouts into <code>kcmu_charts.csv</code> (7,847 rows)<br />
+    <strong>harvest.sh</strong> + <strong>extract_kcmu.py</strong> — pulls KCMU station reports out of 297 CMJ issue PDFs<br />
+    <strong>overlap.py</strong> — cross-references the playlist against everything harvested<br />
+    <strong>charts/</strong> — 356 parsed charts · <strong>raw/</strong> — cached HTML · <strong>kcmu_blocks/</strong> — 99 CMJ reports
+  </p>
+  <div class="col" style="margin-top:1.4rem">
+    <p>Three parsing traps worth recording: the title is italicised with <code>&lt;i&gt;</code> on the RPM pages but <code>&lt;em&gt;</code> on the Variety and Northwest pages; the 1999–2000 pages abandon italics entirely for an <code>Artist - Title (Label)</code> string; and a stray latin-1 byte in one page will kill a UTF-8 scrape mid-run.</p>
+  </div>
+</section>
+
+</div>

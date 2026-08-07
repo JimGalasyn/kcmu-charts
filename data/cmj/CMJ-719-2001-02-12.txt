@@ -1,0 +1,17 @@
+
+============================================================
+txt/CMJ-719-2001-02-12.txt: 1 block(s)
+  meta: Seattle, WA 90.3 F1A
+  12 entries:
+    Mr, Somme
+    208.513.3685
+    WU -TANG CLAN
+    XEN CUTS
+    KRONSTUDIOS
+    DELTRON 3030
+    OUTLAST
+    UNSUNG HEROES
+    TECHNO ANIMAL VS.
+    GURUS JAZZMATAZZ
+    BLACK EYED PEAS
+    AUTOMATOR

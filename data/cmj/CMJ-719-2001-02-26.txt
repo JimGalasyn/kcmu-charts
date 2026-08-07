@@ -1,0 +1,42 @@
+
+============================================================
+txt/CMJ-719-2001-02-26.txt: 3 block(s)
+  meta: Seattle. WA 90.3 FM
+  8 entries:
+    Don Tatar
+    206.543.3685
+    cmuradluemail.cmich.edu
+    KINSKI
+    BILL FRIULI.
+    PLESTIQ PHANTOM
+    NORTEC COLLECTIVE
+    BARE JR
+  meta: NaMes, AK 102.3 FM
+  12 entries:
+    901.766.2020
+    byrnepowerOhotmad.com
+    FRANC011 BREUI
+    IROY
+    FRINDWA
+    OUMOU SANGARE
+    SIDESTEPPER
+    CARLETON
+    KING CHANGO
+    STEVE RILEY &
+    JOI
+    AMADOU ET MARIAM
+  meta: Seattle, WA 90.3 FM
+  13 entries:
+    Don Yates
+    206.543.3685
+    cmuradioemailcmIck.odu
+    LAND
+    JACK COSTANZO
+    MATTHEW SHIPP
+    tworr swwars T
+    JAZZ ON THE LATIN
+    OTA-PROTA
+    GRAND SLAM
+    BEN ALLISON
+    VON FREEMAN &
+    ERNEST DAWKINS

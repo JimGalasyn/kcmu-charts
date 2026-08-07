@@ -1,0 +1,17 @@
+
+============================================================
+txt/CMJ-1998-11-30.txt: 1 block(s)
+  meta: Seattle WA
+  12 entries:
+    BOB DYLAN
+    VIENTO DE AGUA
+    NEOTROPIC
+    JOSE SERRANO/ANTONIO
+    BOY GE' MENDES
+    RIMS
+    Haines AK
+    JAD FAIR & YO LA TEN
+    PORTISHEAD
+    IVY MARNAITI
+    AMY RIGBY
+    PAUL VAN DYK

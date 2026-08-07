@@ -1,0 +1,99 @@
+
+============================================================
+txt/CMJ-2000-04-03.txt: 4 block(s)
+  meta: Seattle WA
+  8 entries:
+    RINOCEROSE
+    DI CAM
+    ASIAN TRAVELS
+    SEPTETO
+    2001
+    A RHYME
+    SANTIAGUERO
+    ODYSSE
+  meta: 
+  53 entries:
+    Burnaby BC
+    Matt Chan
+    604 291 3076
+    MR (MBES
+    VOICES OF URBAN RENE
+    ARCING 8 CAMERON
+    GOLDIE
+    SUBA
+    HAMMERHEADS
+    FAZE ACTION
+    FRENCH PADDLEBOAT
+    RICH1E HAWTIN
+    TAKAKO MINEKAWA
+    Portland OR
+    Brandon Lerberman
+    503 2318012
+    MILK CULT
+    KID KOALA
+    AT HOME WITH THE GRO
+    THIRD EYE FOUNDATION
+    DJ SPOOKY VS SCANNE
+    AIR
+    SNEAKSTER
+    MEPHISTO ODYSSEY
+    THE ORBIT LOUNGE
+    TIED •TICKLED TRIO
+    Calgary AB
+    Jason 03.11
+    403 220 3902
+    DJ CHER 1SABBAH
+    PAN AMERICAN
+    A XUS
+    DI ME DI YOU
+    DI SPOOKY VS SCANNE
+    187
+    MOUSE ON MARS
+    DI RAP
+    PRESENCE
+    MR NEVEUX
+    Seattle WA
+    Don Yates
+    206 543 3685
+    GROOVE ARMADA
+    FUTURE JAll
+    FILA BRAZILIA
+    BRASSIC BEATS USA
+    SUPREME BEINGS OF LE
+    SUBA
+    MOUSE ON MARS
+    DJ ME DJ YOU
+    DON AIR
+    THIRD EYE FOUNDATION
+    CKCU
+  meta: 
+  16 entries:
+    Guelph ON
+    John W Leacock
+    519824 4120
+    CHOCLAIR
+    GHAZAL
+    ASHWAN BADS.
+    ZOCO 103
+    CAPE VERDE
+    1.1
+    DAN -E-0
+    PASCALE
+    DR DRE FEAT EMINEM
+    KARDINAL OFFISH',
+    YOUNGBLOODZ
+    GOODIE MOR FEAT TLC
+    SARDINAL OFFISHAL
+  meta: 
+  11 entries:
+    WWW. hardradio.corn
+    Tracy Barnes
+    9221615212
+    AC/DC
+    VIRGIN STEELE
+    JACOBS DREAM
+    SAXON
+    UNION
+    ARMORED SAINT
+    MEGA DETH
+    IN FLAMES

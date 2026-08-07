@@ -1,0 +1,42 @@
+
+============================================================
+txt/CMJ-2000-06-26.txt: 2 block(s)
+  meta: 
+  21 entries:
+    Fresno CA
+    Manny Carr
+    559278.4500
+    ADAM FREELAND
+    LES GAMMAS
+    PRIMAL SCREAM
+    STEREO MCS
+    DJ FOOD
+    SATOSHI TOMIE
+    PHAT GLOBAL 81
+    DJ CAM
+    GREEN VELVET
+    SVEN VATH
+    Carinle PA
+    Monica Hurnmerkk
+    717 2451661
+    SANDRA COLLINS
+    MORT
+    NYNEX
+    DIGITAL ASSASINS
+    LT) BAKERS
+  meta: 
+  14 entries:
+    Aaron
+    Mhelson
+    ic
+    412
+    6210728
+    Rob
+    Haan
+    718.982
+    3057
+    A.
+    Das,,
+    914.437
+    5476
+    LTJ BUKEM

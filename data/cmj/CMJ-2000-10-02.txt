@@ -1,0 +1,163 @@
+
+============================================================
+txt/CMJ-2000-10-02.txt: 5 block(s)
+  meta: 
+  75 entries:
+    STARLIGHT MINTS
+    KING BISCUIT TIME
+    JANUARIES
+    TIRO
+    Montreal. QC CC Moose Arne
+    S14931 8731
+    MoouarninRyahoo.corn
+    DANDY WANOLS
+    ELASTICA
+    CHIADIGGITI
+    MODEST MOUSE
+    AT THE DRIVE-1N
+    VAST
+    UNDERWORLD
+    DE LA SOUL
+    MOT
+    GO-BETWEENS
+    MORPHINE
+    SOUND OF URCHIN
+    ROYAL FINGERBOWL
+    TREBLE CHARGER
+    EVE 6
+    GETAWAY PEOPLE
+    DAMAGE MANUAL
+    TEDDY THOMPSON
+    THIEVERY CORPORAT
+    SNAKE RIVER CONSP
+    MOJAVE 1
+    SENOR COCONUT VS
+    MORCHEEBA
+    CREATORS
+    Ottawa ON 931 FM
+    Jennifer Tattersall
+    HIS S20
+    ckcuaaweb.net
+    RECOILERS
+    DE LA SOUL
+    NINETEENSEVENTTEI
+    WEIGHTS & MEASURE
+    KEN WHITELY
+    DATSONS
+    STICKY FINCAS
+    EMM GRYNER
+    MAN OR ASTRO-MAN?
+    TRANS AIM
+    CLOVER HONEY
+    MYSTICAL
+    MOM DEEP
+    SUSIE ARIOLI SWIN
+    MEMPHIS SLEEK
+    CHIXDIGGIT!
+    DAN -E-0
+    ISOTOPE 217
+    DAVE ALVIN
+    GARNET CHALLENGER
+    DAR WILLIAMS
+    TEEN IDOLS
+    FUENTES BROTHERS
+    OLIVIA TREMOR CON
+    Tucson. AZ 1570 AM
+    Brent Pampel/Nlichelle
+    520626.4460
+    kampaPkamp antona.edu
+    THE POWERPUFt GIR
+    HEPCAT
+    AT THE DRIVEIN
+    SUNSHINE FIX
+    RANCID
+    SQUIRREL NUT ZIP?
+    JETS TO BRAZIL
+    MAPS
+    TRAGICALLY HIP
+    LES SAW FAT
+    PHOENIX
+    EUCLID
+  meta: Seattle. WA 903 FM
+  11 entries:
+    206.5433685
+    Don
+    Yates
+    BADLY DRAWN BOY
+    ELMDES OCHOA
+    GOURDS
+    I/MSC'S [PLUS] T
+    SEA AND CAKE
+    =1*
+    ItI
+    nleANS
+  meta: 
+  12 entries:
+    Ma
+    Burnaby, LK 939 FM
+    Ed Blake
+    6042913076
+    ÉfIESIS
+    f'n'
+    A
+    '.
+    e '''.
+    D1 CAM
+    SCIA-JUNK
+    CARL COX
+  meta: Calgary, AB 90.9 FM
+  40 entries:
+    Rusty Gran
+    4012203902
+    gsverynOucalgary.Aa
+    SARAH HABAS MUSTA
+    EXOTIC VOICES FRO
+    MARACA
+    LORD INVADER
+    CUBA WITHOUT BORD
+    LOS ZAFIROS
+    LATINAS: WOMEN Of
+    BOB HOLROYD
+    A WORLD OF SOUND
+    BOSSA BRAVA TROPI
+    Seattle, WA 903 FM
+    Don Yates
+    206 5413685
+    LATIN TRAVELS
+    RAW VIBES
+    SACHO ZUMBI
+    VIVA CUBOP 2
+    DA UTA
+    MARIA OCHOA Y COR
+    MASTER MUSICIANS
+    MUSIC FROM THE TE
+    ANDREA MARQUEE
+    NEW LATINARIES VO
+    Redo, CA 911 FM
+    Kate Klein
+    7079212513
+    mdOluntolorg
+    VIEUX DIOP
+    CAETANO ELM
+    CHICO CESAR
+    TELEX
+    CHUCHO VALDES
+    CALYPSO AWAKENING
+    ALEX DE GRASSI 8.
+    TRILOK GURTU
+    LATIN TRAVELS
+    NIAPAH PARSONS
+  meta: Seattle, WA 90.3 FM
+  12 entries:
+    Don Yates
+    2065413685
+    ST GERMAIN
+    VIVA CUBOP 2
+    SPACEWAYS INCORPO
+    BILLY TIPTON MEMO
+    LIVING DAYUGHTS
+    CHICAGO UNDERGROU
+    GYPSY SWING
+    BEBOP AND DESTRUC
+    MILES DAVIS
+    MILES DAVIS

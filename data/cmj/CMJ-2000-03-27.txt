@@ -1,0 +1,31 @@
+
+============================================================
+txt/CMJ-2000-03-27.txt: 2 block(s)
+  meta: Seattle WA
+  12 entries:
+    Doe Yates
+    206 5413685
+    FUTURE. JAZZ
+    TEKTONICS
+    GROOVE ARMADA
+    SUBA
+    BRASSIC BEATS USA
+    SUPREME BEINGS OE LE
+    MOUSE ON MARS
+    DI ME DJ YOU
+    DUBXOTIC ETHNOFUNKAD
+    SMITH & MIGHTY
+  meta: Seattle WA
+  12 entries:
+    Den Tat.
+    106$433685
+    PACHORA
+    IN HIS OWN SWEET WAY
+    WAYNE HORVITZ IL ZOILO
+    FRANCISCO AGUABELLA
+    SEX MOB
+    ERIK FRIEDLANDER
+    LATINO BLUE
+    TIED •TICKLED TRIO
+    BILL DIXON
+    MATT DARRIAU PARADOX

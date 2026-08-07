@@ -1,0 +1,32 @@
+
+============================================================
+txt/CMJ-1999-10-25.txt: 1 block(s)
+  meta: 
+  27 entries:
+    San Jose CA
+    Brad Stone
+    408.924.4549
+    BRASIL 2MIL 1. THE
+    LUNAR DRIVE
+    POVI
+    RIZWAN-MUA72AM QAWNA
+    TAJ MAHAL AND TRUMAN
+    EUPHONE
+    AL! FARM TOURE
+    EUPHORIA
+    GERRY O'CONNOR
+    NUSRAT FATEH ALI KHA
+    New York NY
+    Delpnine Blue
+    212.209.2800
+    NUSRAT FATEH AU KHA
+    OUMOU SANGARE
+    FEMI KU71
+    MUSAFIR
+    AU FARM TOURE
+    AU FARM TOURE
+    UGHTS IN A FAT CITY
+    REROOTED
+    HENRI DIKONGUE
+    LLEGO VAN VAN
+    MIND

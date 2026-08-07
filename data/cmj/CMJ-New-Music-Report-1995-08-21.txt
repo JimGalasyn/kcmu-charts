@@ -1,0 +1,54 @@
+
+============================================================
+txt/CMJ-New-Music-Report-1995-08-21.txt: 1 block(s)
+  meta: 
+  49 entries:
+    V/CAL Grand Rapds MI
+    V/CBN Ann Arbor MI
+    Seattle WA
+    V/CFM Waliamstown MA
+    Mthorry
+    V/CSB Cleveland OH
+    0/OCR Media PA
+    PERFUME TREE
+    DEE PSPACE
+    206.543.3685
+    FUTURE SOUND OF LONDON
+    MACRO DUB INFECTION
+    ABSTRAKT WORKSHOP
+    FUNKY PORCINI
+    Mans Hayashi
+    808.956.4848
+    TILL BRONNER/GREGOIRE
+    CARMEN BRADFORD
+    V/DJM Frammgham MA
+    WEFT Champaign IL
+    VA/OS Gene. NY
+    NEW KLEZMER TRIO
+    ANDREW LAMB
+    256.987.3523
+    STEVE TURRE
+    ELLERY ESKELIN
+    SIAMESE STEPBROTHERS
+    WILLIAM HOOKER/LEE RAP/AL
+    ABBEY LINCOLN
+    TERENCE BLANCHARD
+    INGRID JENSON
+    BROUN FELLINIS
+    VIERS Boston MA
+    V/EVL Memphis TN
+    ROY HARGROVE
+    RANDY WESTON
+    TERENCE BLANCHARD
+    KIP HANRAHAN
+    MODERN JAZZ QUARTET
+    ROY HARGROVE
+    EDEN ATWOOD
+    CHARLIE HUNTER TRIO
+    DENNIS ROWLAND
+    CARL ALLEN
+    MAL WALDRON
+    EARTHRISE ATONE I
+    APHEX TWIN
+    BJORK
+    APE

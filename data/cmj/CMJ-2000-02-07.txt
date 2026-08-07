@@ -1,0 +1,106 @@
+
+============================================================
+txt/CMJ-2000-02-07.txt: 3 block(s)
+  meta: Seattle WA
+  11 entries:
+    DANGELO
+    CARAVANA CUBANA
+    FUTURE JAll
+    LEWIS
+    SUPER CHIKAN
+    CEBU
+    St Cathennes ON
+    FU MANCHU
+    SEELY
+    SRI
+    KEVLAR
+  meta: 
+  53 entries:
+    Edmonton AB
+    Davod Ward
+    800 494 2582
+    ',ARV JANE LAMAND
+    TROJAN ROOTS BOX SET
+    TOMMY MCCOOK
+    GAELIC VOICES
+    SONGS OF INNOCENCE
+    BACHUE
+    SISTER CAROL
+    JUAN CARLOS QUINTERO
+    MISIA
+    KEPA JUNKERA
+    Montreal PQ
+    John Braithwete
+    514 398 6787
+    TOBACO & RON
+    SOUNGALO COULIBALY
+    RENO MYAZ
+    INNER CIRCLE & THE F
+    vIRG.NIA RODRIGUES
+    TOURETOURE
+    THE LAND OF FIRE
+    BALKAN VOICES
+    PACHORA
+    MILLO TORRES
+    CSCR
+    St L.., MO
+    Kenneth G Whotney jr
+    314 5954463
+    HECTOR ZAZOU
+    AMOEBA
+    HUGHES DECOURSON
+    HOWARD GREEN
+    MEOW«, GOODALL
+    STUART JONES
+    RARE REGGAE GROOVES
+    TRIPLE SPIN 2
+    TOMMY MCCOOK
+    MALI
+    Seattle WA
+    Don Yates
+    20e 543 3685
+    THE SOUND OF CHANNEL
+    iHt« CUBAN JAll TH
+    ROUGH GUIDE TO THE M
+    COMP. SEGUNDO
+    BERNARD ROBANDO
+    DJANBUTU THIOSSANE
+    LIGHTNING OVER THE R
+    MAHMOUD ARMED
+    FRANCO 100 JAll
+    TRUCO & ZAPEROKO
+  meta: 
+  33 entries:
+    Ruston LA
+    Fred McGhee
+    3182574852
+    EASTSIDAZ
+    JAY-Z
+    MURDERERS
+    THE LOU
+    COMMON
+    ICE CUBE
+    CAMRON AND PRODIGY
+    METHOD MAN/REDMAN
+    'CARDINAL OFFISHAL
+    CHOCLAIR
+    RAKIM
+    HANDSOME BOY MODEL.
+    JAY-2
+    DR. DRE FEAT. SNOOP
+    LAST EMPEROR
+    DMA
+    01: DIRTY BASTARD
+    ROOTS FEAT COMMON,
+    JURASSIC-5
+    414763.0195
+    DAM
+    JAY-2
+    ICE CUBE
+    JUVENILE
+    Q-TIF
+    NAS
+    NOTORIOUS BIG.
+    LL COOL J
+    TASH/RAEKWON
+    HIGH II MIGHTY FEAT

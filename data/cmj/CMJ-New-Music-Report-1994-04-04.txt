@@ -1,0 +1,23 @@
+
+============================================================
+txt/CMJ-New-Music-Report-1994-04-04.txt: 1 block(s)
+  meta: Seattle WA 90.3 FM | (Don Yates) | (206) 543-3885
+  18 entries:
+    SOUNDGARDEN
+    EUGENIUS
+    HECTOR ZAZOU
+    BECK
+    PAVEMENT
+    GROOVE COLLECTIVE
+    MARK LANEGAN
+    SUGAR BLUE
+    JAWBOX
+    BACKBEAT
+    AFRICA NEVER STAND gnu.
+    THRONEBERRY
+    (HALED
+    AFRICAN HEAD CHARGE
+    KRISTIN HERSH
+    WILDHEARTS
+    ETIONOTECHNO SONIC ANEW)
+    LUNA

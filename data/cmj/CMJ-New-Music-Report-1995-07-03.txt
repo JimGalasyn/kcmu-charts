@@ -1,0 +1,27 @@
+
+============================================================
+txt/CMJ-New-Music-Report-1995-07-03.txt: 1 block(s)
+  meta: 
+  22 entries:
+    Pat Smith
+    Jan Gore/Rim Gentry
+    Prescott AZ 1067 CoFM
+    604.291.3727
+    Don Yates
+    901.235.7121
+    503.137.3610
+    HEATMISER
+    Scott Surnrnerfleld
+    Chris Moffatt
+    206.513.3685
+    SIMPLE ONES
+    Chico CA 95.5 CoFM
+    Tanya Smith
+    916.898.6229
+    San Francisco CA 880 AM
+    717.337.6315
+    602.776.3785
+    THURSTON MOORE
+    415.666.6880
+    SPIRITUALIZED
+    MOJO NIXON

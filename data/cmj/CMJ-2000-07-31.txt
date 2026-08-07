@@ -1,0 +1,125 @@
+
+============================================================
+txt/CMJ-2000-07-31.txt: 4 block(s)
+  meta: 
+  13 entries:
+    Durham NC
+    Tnint Avery O'Neal
+    919530.7449
+    DE LA SOUL/REDMAN
+    NATURE
+    QUASIMOTO
+    MOP
+    JURASSIC-5
+    OCEAN
+    BUMPY KNUCKLES
+    CASH BROWN
+    BAHAMADIA
+    COPYWRITE
+  meta: Seattle WA
+  12 entries:
+    Don Yates
+    2065413685
+    ROKIA TRAORE
+    SHWETA MAYER,
+    O'MARA PORTUONDO
+    CHEIKH LO
+    MANHATTAN BROTHERS
+    PUERTO RICO
+    EKOVA
+    THOMAS MAPFUMO &THE
+    SEPTETO NACIONAL & G
+    TWILIGHT CIRCUS DUB
+  meta: 
+  26 entries:
+    Durham NC
+    Tim >Chia.
+    919684 2957
+    SALSA AFRICA
+    FRIKYIWA
+    PATATO
+    NUSRAT EATEN ALI RAU
+    SNOWBOY AND THE LATI
+    TRAVELER 00
+    HULA BLUES
+    OLIVER MTUKUDZI
+    FEEL LIKE JUMPING T
+    BEBEL GILBERTO
+    Seattle WA
+    Don Yates
+    206 S43 3685
+    THE BEST OF COOKIN'
+    SNOWBOY AND THE LATI
+    CHARLIE HUNTER
+    JASON MORAN
+    CHRIS SPEED
+    ERIK TRUFFA!
+    SIMON NABOTOV TRIO
+    MYRA MELFORDS CRUSH
+    DAVE DOUGLAS
+    DAVID MURRAY
+  meta: 
+  63 entries:
+    PAPA ROACH
+    A PERFECT CIRCLE
+    81"
+    DISTURBED
+    CATHERINE WHEEL
+    DOPE
+    DEFTONES
+    INCUBUS
+    BLINK 182
+    PIMPADELIC
+    EVERCLEAR
+    VAST
+    DYNAMITE HACK
+    MXPX
+    MIGHTY MIGHTY BOSSTO
+    SNAKE RIVER CONSPIRA
+    STATIC.%
+    NEST
+    LIMP 812K IT
+    ELWCOD
+    POD
+    BORN
+    KOTIONMOUTH KINGS
+    OEM
+    ROB ZOMBIE
+    www kcnsu ors
+    Don Yates
+    206 543 3685
+    MODEST MOUSE
+    JURASSIC-5
+    764-HERO
+    ROBYN HITCHCOCK
+    SALLY TIMMS &JON LA
+    BOIRA TRAORE
+    CHRISTY PACWILSON
+    DI CAM
+    PETER BRUNTNELL
+    CAFUSSAS WEIRD
+    BELLE AND SEBASTIAN
+    DOWN TO THE PROMISED
+    URSULA 1000
+    SHWETA 'HAVER,
+    THE DROP
+    SIXTEEN DELUXE
+    TIM CARROLL
+    AIMEE MANN
+    SCHRAMMS
+    OMARA PORTUONDO
+    ARAB STRAP
+    CHEIKH LO
+    DANDY WARHOLS
+    SMITH P. MIGHTY
+    APPLIANCE
+    '
+    2
+    .
+    1r8er
+    envsybravenesweorldnet
+    Tricia Halbran
+    818758.8700
+    wvnvelectriceyeradiocorn
+    www.kast.corn
+    ICAST

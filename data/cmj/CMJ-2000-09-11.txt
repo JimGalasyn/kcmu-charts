@@ -1,0 +1,97 @@
+
+============================================================
+txt/CMJ-2000-09-11.txt: 2 block(s)
+  meta: 
+  67 entries:
+    THIEVERY CORPORAT
+    JUST ANOTHER TAST
+    URSULA 1000
+    TRANCE GROOVE
+    MOODORAMA
+    BOB HOLROYD
+    MEPHISTO ODYSSEY
+    LIVE HUMAN
+    DI CAM
+    SMITH P. MIGHTY
+    1LUA
+    CUM.
+    LA
+    CUTRATEBOX
+    NEGATIVE FORMAT
+    MOKSHA
+    COUNT 2INFINITY
+    TESTUBE
+    DUBOK
+    DIVA XMACHINA 3
+    VOLTAIC
+    DRYFT
+    ISIMACHINE
+    CHSR
+    CHTZ
+    MOONSHINE OVER AM
+    CARL COX
+    BOILER ROOM
+    45 DIP
+    JOHN DIGWEED
+    PHUNKY DATA
+    MEPHISTO ODYSSEY
+    BUKEM
+    SANDRA COLLINS
+    DARREN EMERSON
+    Seattle. WA 90.3 FM
+    Don Yates
+    206543.3685
+    USAF Academy. CO 104.3 FM
+    Scott Bausch
+    7193314604
+    Quebec Coy. QC 943 FM
+    Dirnitri Fortin
+    418.656.2131
+    chyzOpublic.ulavalca
+    URSULA 1000
+    GREEN VELVET
+    AMON TORN
+    UP, BUSTLE P. OUT
+    DARREN EMERSON
+    BOB HOLROYD
+    JIMI TENOR
+    FUNKER VOGT
+    JOHN DIGWEED
+    TEKTONICS
+    St. Louis. MO 895 FM
+    Paul Wydra
+    314.595.4463
+    Peoria. IL 90.3 CON,
+    Jim Vaughn
+    3096829277
+    Landon ON 94.7 FM
+    Bey Webb
+    5196613601
+    chrwmpOjulianuwoca
+    KID KOALA
+    RICHIE HAWTIN/PET
+  meta: Seattle, WA 903 FM
+  23 entries:
+    Don Yates
+    206 913 3685
+    entielt "
+    JURASSIC-5
+    DELE SOUL FEAT.
+    DAN -E-0
+    PEOPLE UNDER THE
+    MC PAUL BARMAN
+    A-Team
+    SENSATIONAL
+    CASH BROWN
+    BAHAMADIA
+    JURASSIC-5
+    DE LA SOUL FEAT
+    DIVINE STYLER
+    CREATORS
+    MASTERMINDS
+    BAHAMADIA
+    CALI AGENTS
+    NOCTMEN
+    ALLIES
+    DILATED PEOPLES
+    CISM

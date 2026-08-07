@@ -1,0 +1,19 @@
+
+============================================================
+txt/CMJ-2000-07-10.txt: 1 block(s)
+  meta: 
+  14 entries:
+    Station
+    Pasadena CA
+    Eugene OR
+    Sank,' NC
+    Wash.neon DC
+    BEAT
+    vnius
+    Storrs CT
+    Tran
+    :20=4007
+    JURASSIC-5
+    JUKE
+    MOS DEF
+    BOX

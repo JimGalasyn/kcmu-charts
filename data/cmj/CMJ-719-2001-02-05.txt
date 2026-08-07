@@ -1,0 +1,83 @@
+
+============================================================
+txt/CMJ-719-2001-02-05.txt: 3 block(s)
+  meta: 
+  50 entries:
+    KAM)
+    Toronto, ON 89 5FM
+    Roorbeh Showier,
+    416.9710909
+    r BordOcialm
+    JAKKI THE MOM MO
+    /-LIVE
+    DJ SERIOUS
+    BAD SEED
+    AFU-RA
+    NtADLM
+    MOP
+    LOOTPACK
+    LOOTPACK
+    SELF SCIENTIFIC
+    Seattle, WA
+    FM
+    903 FM
+    3
+    g
+    Ub S
+    .'
+    513.'361
+    viill-lANG LEAN
+    %EN CUTS
+    KRONSTUDIOS
+    OUTKAST
+    TECHNO ANIMAL VS.
+    DELTRON 3010
+    UNSUNG HEROES
+    GURUS JAZZMATAZZ
+    AUTOMATON
+    BLACK EYED PEAS
+    Grand
+    'sae Seabery
+    Junction. CO 911 FM
+    Natchitoches. LA 91/ 111
+    Bobby Heinen
+    318.35/.4180
+    kmortealplu.esula.edulkewd
+    MYSTIKAL
+    10,2
+    LUDACRIS
+    WU -TANG CLAN
+    OUTICAST
+    ID:WAYNE
+    GURUSJAZZAMTAZZ
+    TUPAC SHAKUR
+    MEMPHIS REEK
+    CAPONE & NOIR
+  meta: Seattle. WA 90.3 FM
+  12 entries:
+    Mr. Supreme
+    206113.3685
+    AMADOU ET MARIAM
+    GIALLARHORN
+    PARIS COMBO
+    AFRICANDO ALL STA
+    TWILIGHT CIRCUS D
+    PAPA NOEL
+    MARIA KALANIEMI &
+    GENGHIS BLUES
+    WORLD OF GYPSIES
+    THIS IS SAMBA, v0
+  meta: Seattle. WA 90.3 FM
+  12 entries:
+    Don Yates
+    206.543.3685
+    ELLIOTT SHARPS T
+    OTA.PROTA
+    JAZZ °Nil« LATIN
+    ERNEST DAwKINS
+    GRAND SLAM
+    RAY BAYANT TRIO
+    MICHAEL BISIO
+    VON FREEMAN &
+    DAvT DOUGLAS
+    .',` IS FOALING

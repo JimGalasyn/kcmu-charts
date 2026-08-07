@@ -1,0 +1,51 @@
+
+============================================================
+txt/CMJ-719-2001-04-09.txt: 2 block(s)
+  meta: Flagstaff. AZ 1680 AM
+  17 entries:
+    Brent Rosen
+    520.5231036
+    kjakerade.fm
+    Insee, IT 91.1 FM
+    r4.5lee.4907
+    ((SIS
+    Bauman. NT 91.9 FM
+    Molly Skorpik
+    406.991.6483
+    ketmusOmontana.edu
+    NIKKA COSTA
+    TIPSY
+    FIESTEA
+    DC, LAR CANON
+    THOU
+    KM
+    11/AK
+  meta: 
+  27 entries:
+    Montreal, 101 5FM
+    Claude Mon
+    51A526.2581
+    Sylyian.Lalreniere
+    JOHN SCOGELD
+    MARIA MULDAUR
+    JOHN HAMMOND
+    SOULIVE
+    SCOTT FIELDS ENSE
+    JIMMY SMITH
+    CARLOS AGIS DATO
+    RALPH
+    0 BROTHER, WHERE
+    BEN ALLISON
+    Ruffle, WA 90.3 FM
+    Don Tales
+    201543.3685
+    embradioemaiLemich edu
+    BILL FRISELL
+    LAND
+    JACK COSTANZO
+    SOULIVE
+    BALLIDA CARROLL
+    BOBBY MONTE/
+    RAN BLAKE
+    men HEW SHIRE
+    CIUT

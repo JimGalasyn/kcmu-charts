@@ -1,0 +1,103 @@
+
+============================================================
+txt/CMJ-2000-10-09.txt: 3 block(s)
+  meta: Seattle WA 90.3 FM
+  26 entries:
+    Don Yates
+    206543.3685
+    TITAN
+    SAINT GERMAIN
+    LATIN TRAVELS
+    THIEVERY CORPORAT
+    UNDERWORLD
+    JUST ANOTHER TAST
+    TRANCE GROOVE
+    NEW LATINARIES v0
+    IAN POOLE`,
+    MINUS 8
+    Portland. OR 1041
+    Mark Wagy
+    501.7687133
+    klc6alclark.edu
+    FUNKSTORUNG
+    PHOTEK
+    SPRING HEEL JACK
+    DIVINE STYLER
+    SMITH 8. MIGHT
+    CODEC
+    POLE
+    THIEVERY CORPORAT
+    UP, BUSTLE &
+    DI CAM
+  meta: Seattle. WA 90.3 FM
+  55 entries:
+    Mr Supreme
+    206 543.3685
+    ELIADES OCHOA
+    LATIN TRAVELS
+    NACAO ZUMBI
+    VIVA CUBOP 2
+    RAW VIBES
+    ANDREA MARQUEE
+    Marla Ochoa Y Cor
+    MUSIC FROM THE TE
+    NEW LATINAR1ES VO
+    MASTER MUSICIANS
+    OCRW
+    Santa Monrta. CA 89.9 FM
+    Halloran/Flarcaert
+    310450.5183
+    bravelakoworg
+    tabla beat soenc
+    SIX DEGREES TFMVE
+    LADYSMITH BLACK M
+    NEW LATINAR1ES VO
+    LOS AMIGOS INVISI
+    BANCO DE GAIA
+    OM LOUNGE 4
+    YOUSSOU NDO
+    MUSIC FROM THE TE
+    DA LATA
+    CUM
+    ODIC
+    Montreal. PQ 90 3FM
+    Azar S.
+    514 398 6787
+    Grinnell. IA 88 5FM
+    Colin Guth.
+    515 269 3335
+    musoolackutca
+    sylford walker an
+    LOS AMIGOS INVISI
+    VOLUME FOUR
+    AFROKAT NO GO
+    LOS ZAFIROS
+    Kjukas
+    To, Allen
+    COSMIC VOICES OF
+    (»TAN ANCIENT MUS
+    MASTER MUSICIANS
+    kclictRac grin edu
+    sylford walker an
+    CORNELL CAMPBELL
+    PONCHO SANCHEZ
+    SONG OF THE GREEN
+    Kwadt0 .- South A
+    UNVAL THOMPSON
+    KORNOG
+    TRINITY HI-FI
+  meta: 
+  13 entries:
+    5Nttle. WA 90 3FM
+    Don Yates
+    206 543.3685
+    SAINT GERMAIN
+    VIVA CUBO? 2
+    BILLY TIPTON MEMO
+    LIVING DAYLIGHTS
+    SPACEWAYS INCORPO
+    GYPSY SWING
+    BEBOP AM) DESTRUC
+    CHICAGO UNDERGROU
+    MILES DAVIS
+    MILES DAVIS

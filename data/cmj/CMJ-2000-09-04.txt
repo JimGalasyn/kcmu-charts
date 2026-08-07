@@ -1,0 +1,36 @@
+
+============================================================
+txt/CMJ-2000-09-04.txt: 2 block(s)
+  meta: Seattle. WA 90.3 FM
+  17 entries:
+    Don Yates
+    (206) 543-3685
+    CRUT
+    Montreal. PQ 90.3 FM
+    Lone Edmonds/John
+    (514) 398.6787
+    musicilackutca
+    LIVE HUMAN
+    TOMAS JIRKU
+    JIMI TENOR
+    A GUY CALLED GE.
+    DA LATA
+    MOVING FURTHER OU
+    FREDEVERYTHING
+    HOOKER/MARCLAVRA
+    BOSSA BRAVA TROPI
+    HI-FIDELITY DUB S
+  meta: Seattle. WA 903 FM
+  12 entries:
+    Don Yates
+    (206) 5431685
+    JURASSIC-5
+    DE LA SOUL FEAT
+    DIVINE STYLER
+    NEXTMEN
+    MASTERMINDS
+    CALI AGENTS
+    ALLIES
+    BAHAMADIA
+    ENCORE
+    DILATED PEOPLES

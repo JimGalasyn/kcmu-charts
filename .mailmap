@@ -1,0 +1,35 @@
+# Canonical identities for git log / shortlog / blame.
+#
+# The initial-import commit was produced on a work machine and picked up
+# jim.galasyn@confluent.io from a global ~/.gitconfig. Because that commit had not
+# been pushed anywhere when it landed here, it was AMENDED rather than mapped — no
+# clone existed to break, so the work address is genuinely gone from this history
+# rather than merely hidden. Verify: `git log --format='%ae' | grep -c confluent`
+# should print 0 for the import.
+#
+# The mapping below is therefore NOT for that commit. It is for a second cause that
+# no git config on any machine can prevent: when a PR is merged on GitHub, GitHub
+# composes the merge commit itself and authors it with the account's PRIMARY email,
+# which is the work address. This fires on merge commits as well as squash merges,
+# and it is live. Expect one per merged PR. A local `git merge --no-ff` is authored
+# from your own config and avoids it, where repo rulesets allow that path.
+#
+# No count is written here, because any number would be stale by the next merge.
+# Recompute with:
+#   git log --format='%an <%ae>' | sort | uniq -c
+#
+# Per-machine guard for the first cause (the repo cannot enforce it; a new machine is
+# unguarded until set up — check `git config user.email` before the first commit):
+#   - work machine: conditional include keyed on the remote URL, so the personal
+#     identity attaches to any clone of this repo anywhere on disk —
+#       [includeIf "hasconfig:remote.*.url:https://github.com/JimGalasyn/**"]
+#               path = ~/.gitconfig-personal
+#   - Bender: global user.email is the personal address; the work address is not
+#     configured at all.
+#
+# The author name appears both as "Jim" and as "Jim Galasyn"; both map to one form.
+#
+# Format: Proper Name <proper@email> <commit@email>
+
+Jim Galasyn <jim.galasyn@hotmail.com> <jim.galasyn@confluent.io>
+Jim Galasyn <jim.galasyn@hotmail.com> <jim.galasyn@hotmail.com>

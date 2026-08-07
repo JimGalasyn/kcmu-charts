@@ -14,6 +14,7 @@ KEXP's public playlist API begins around 2001. Everything before that — the KC
 | --- | --- |
 | `genre` | which chart: `variety`, `northwest`, `electronic-dance` (RPM), `americana`, `blues`, `world`, `hip-hop` (Beat Box), `jazz`, `retrospective` |
 | `chart_page` | source page id — `YYMM` for monthly charts, a name for retrospectives |
+| `date` | ISO start date of the chart week, derived — the one column that sorts chronologically. `chart_page` does not (`0001` sorts before `9501`) and `period` is prose. Empty for the 457 undated retrospective rows |
 | `period` | the chart week as printed, e.g. `March 4-10, 1996`. From April 2000 the station published monthly, so those rows carry a bare `April 2000`. Empty for the 457 `retrospective` rows — year-end countdowns and index pages have no chart week |
 | `artist` / `title` / `label` | as printed |
 
@@ -23,6 +24,11 @@ Supporting directories:
 - `data/raw/` — cached source HTML, so re-parsing costs no network fetches
 - `data/cmj/` — 99 KCMU station reports extracted from *CMJ New Music Report*
 - `docs/index.html` — a written-up summary of the findings (also the GitHub Pages site)
+- `docs/browser.html` — a searchable browser over every entry, with a permalink per
+  artist (`#/artist/bill-frisell`) and per chart (`#/chart/9603|electronic-dance`)
+- `docs/kcmu_charts.csv` — **generated, do not edit.** GitHub Pages publishes `/docs`
+  only, so the browser cannot reach `data/`. `parse_charts.py` writes both copies in
+  one run; that is what stops them drifting
 
 ## KCMU's chart taxonomy
 
@@ -50,6 +56,12 @@ The RPM 10 was reported weekly to *CMJ*, which is why both sources carry it.
 - **1992–93 are missing entirely.** No CMJ issues exist in the archive for those years and kcmu.org did not exist yet.
 - **These are station-level rotation charts, not per-show logs.** The shows *Expansions* and *Sonarchy* are named in the RPM blurbs, but their own playlists were never published.
 - **The CMJ extracts are rough.** OCR on a two-column magazine layout interleaves columns, so some blocks mix KCMU's entries with a neighbouring station's. Treat `data/cmj/` as a lead, not as clean data. The kcmu.org charts have no such problem.
+- **The year-end Top 90.3 pages have a shifted `artist` column.** Those pages print four
+  fields — ARTIST / SONG / ALBUM / RECORD CO — where the weekly charts print three, and
+  the parser reads three. So on `top9094`–`top9097` (361 rows) the song title is glued
+  onto the artist (`Ben Harper Ground On Down`), `title` holds the album, and `label` is
+  correct. Those rows are readable but should not be used as artist identities; fixing
+  it properly means teaching the parser the four-column layout.
 - **No airchecks surfaced.** The one indexed collection (College Radio Archive on SoundCloud) is empty.
 
 ## Reproducing

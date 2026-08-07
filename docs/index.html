@@ -147,6 +147,16 @@
   .artist { font-weight: 600; }
   .title { font-style: italic; }
   .label { color: var(--muted); font-size: .73rem; }
+  .browse-cta {
+    font-family: var(--display); font-size: 1rem; font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .browse-cta a {
+    display: inline-block; text-decoration: none; color: var(--signal);
+    border: 1px solid var(--hair); border-radius: 10px;
+    padding: 11px 20px; background: var(--surface); box-shadow: var(--shadow);
+  }
+  .browse-cta a:hover { border-color: var(--signal); }
   mark { background: color-mix(in srgb, var(--signal) 22%, transparent); color: inherit; padding: 0 .15em; border-radius: 2px; }
 
   /* ---- confirmed matches ---- */
@@ -203,6 +213,8 @@
   <h1>The playlists survived.</h1>
   <p class="lede"><strong>KCMU published its own charts to the web from 1995, and the Wayback Machine kept them.</strong> 356 charts recovered — eight genres, 64 months, 7,847 entries, 2,410 distinct artists — plus year-end listener countdowns, a Top 90.3 of the decade, and 99 station reports printed in <em>CMJ</em>. Twenty-five artists from your playlist turn up in the real charts, several down to the exact track.</p>
 </header>
+
+<p class="browse-cta"><a href="browser.html">Browse all 7,847 entries →</a></p>
 
 <hr class="rule" />
 

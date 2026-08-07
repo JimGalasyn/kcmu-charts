@@ -39,6 +39,55 @@ MONTHLINE = re.compile(
 )
 
 
+MONTH_NUM = {}
+for _i, _m in enumerate(
+    "january february march april may june july august september october "
+    "november december".split(), 1):
+    MONTH_NUM[_m] = _i
+    MONTH_NUM[_m[:3]] = _i
+MONTH_NUM["sept"] = 9
+
+WEEKLY = re.compile(r"(?i)^([a-z]+)\s+(\d{1,2})\s*-\s*(?:([a-z]+)\s+)?(\d{1,2})\s*,\s*(\d{4})$")
+MONTHLY = re.compile(r"(?i)^([a-z]+)\s+(\d{4})$")
+
+
+def chart_date(period, page):
+    """ISO start date for a chart, or "" when the page has no date at all.
+
+    `period` is prose in two granularities and `chart_page` is YYMM, so neither
+    sorts chronologically on its own: "0001" (Jan 2000) sorts before "9501" (Jan
+    1995) lexically, and "April 2000" has no day. This derives one real key.
+
+    The subtle case is a week that straddles New Year. "December 30-January 5,
+    1997" prints the year of the END date, so the week actually begins 1996-12-30
+    — a year earlier than a naive read gives. Its chart_page is 9701, which is
+    what confirms the intent. Detected by the start month being later than the
+    end month.
+    """
+    m = WEEKLY.match(period)
+    if m:
+        start_mon, start_day, end_mon, _, year = m.groups()
+        sm = MONTH_NUM.get(start_mon.lower())
+        em = MONTH_NUM.get((end_mon or start_mon).lower())
+        if sm:
+            year = int(year)
+            if em and sm > em:      # range wraps the new year
+                year -= 1
+            return f"{year:04d}-{sm:02d}-{int(start_day):02d}"
+    m = MONTHLY.match(period)
+    if m:
+        mon, year = m.groups()
+        if MONTH_NUM.get(mon.lower()):
+            return f"{int(year):04d}-{MONTH_NUM[mon.lower()]:02d}-01"
+    # No period: fall back to the page id when it is YYMM. The corpus runs
+    # 1995-2000, so a two-digit year >= 95 is 19xx.
+    if len(page) == 4 and page.isdigit():
+        yy, mm = int(page[:2]), int(page[2:])
+        if 1 <= mm <= 12:
+            return f"{1900 + yy if yy >= 95 else 2000 + yy:04d}-{mm:02d}-01"
+    return ""
+
+
 def clean(s):
     # Strips a trailing hyphen because the italic layout splits on the <i>/<em>
     # tag, not on the separator: "Artist - <i>Title</i> - Label" leaves the dash
@@ -98,19 +147,31 @@ def main():
         period, rows = parse(f)
         if not rows:
             continue
+        date = chart_date(period, page)
         per_file[base] = (genre, page, period, rows)
         for a, t, l in rows:
-            allrows.append((genre, page, period, a, t, l))
+            allrows.append((genre, page, date, period, a, t, l))
 
-    with open("kcmu_charts.csv", "w", newline="") as fh:
-        w = csv.writer(fh)
-        w.writerow(["genre", "chart_page", "period", "artist", "title", "label"])
-        w.writerows(allrows)
+    header = ["genre", "chart_page", "date", "period", "artist", "title", "label"]
+    # Written twice on purpose. GitHub Pages publishes /docs only, so the copy in
+    # data/ is not reachable from the site and docs/browser.html cannot fetch it.
+    # Emitting both from one run is what keeps them from drifting; do not copy the
+    # file by hand.
+    targets = ["kcmu_charts.csv",
+               os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "..", "docs", "kcmu_charts.csv")]
+    for path in targets:
+        with open(path, "w", newline="") as fh:
+            w = csv.writer(fh)
+            w.writerow(header)
+            w.writerows(allrows)
 
+    dated = sum(1 for r in allrows if r[2])
     print(f"{len(files)} pages -> {len(allrows)} chart entries, {len(per_file)} parsed")
-    print(f"unique artists: {len({r[3].lower() for r in allrows})}")
+    print(f"dated: {dated}/{len(allrows)}  (undated are retrospectives with no chart week)")
+    print(f"unique artists: {len({r[4].lower() for r in allrows})}")
     print("\n=== most-charted artists ===")
-    for a, n in Counter(r[3] for r in allrows).most_common(30):
+    for a, n in Counter(r[4] for r in allrows).most_common(30):
         print(f"{n:3d}  {a}")
 
 

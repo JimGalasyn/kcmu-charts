@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KCMU Chart Browser, 1995–2000</title>
+<meta name="description" content="Search 7,847 KCMU airplay chart entries from 1995 to 2000.">
+<style>
+  :root {
+    --ground: #EEF1F4;
+    --surface: #FFFFFF;
+    --sunk: #E3E8ED;
+    --ink: #0E141B;
+    --muted: #5A6875;
+    --hair: #C9D2DA;
+    --signal: #B85F0E;
+    --confirm: #216C68;
+    --shadow: 0 1px 2px rgba(14, 20, 27, .06), 0 8px 24px -12px rgba(14, 20, 27, .18);
+
+    --display: ui-sans-serif, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --body: Georgia, "Iowan Old Style", ui-serif, "Times New Roman", serif;
+    --data: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C1218;
+      --surface: #141C25;
+      --sunk: #1B2530;
+      --ink: #E3EAF1;
+      --muted: #94A4B4;
+      --hair: #2B3844;
+      --signal: #E39B4B;
+      --confirm: #5FB0AA;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C1218;
+    --surface: #141C25;
+    --sunk: #1B2530;
+    --ink: #E3EAF1;
+    --muted: #94A4B4;
+    --hair: #2B3844;
+    --signal: #E39B4B;
+    --confirm: #5FB0AA;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--signal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
+
+  header.site {
+    border-bottom: 1px solid var(--hair);
+    background: var(--surface);
+    margin-bottom: 28px;
+  }
+  header.site .wrap { padding-top: 22px; padding-bottom: 22px; }
+  .brand {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -.02em;
+    margin: 0;
+  }
+  .brand a { color: var(--ink); text-decoration: none; }
+  .tagline { font-size: .93rem; color: var(--muted); margin: 4px 0 0; }
+  .tagline a { color: var(--muted); }
+
+  /* ---- controls ---- */
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    margin-bottom: 18px;
+  }
+  input[type="search"], select {
+    font-family: var(--display);
+    font-size: .95rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--hair);
+    border-radius: 8px;
+    padding: 9px 12px;
+  }
+  input[type="search"] { flex: 1 1 300px; min-width: 0; }
+  input[type="search"]:focus, select:focus {
+    outline: 2px solid var(--signal); outline-offset: -1px;
+  }
+  .count { font-family: var(--display); font-size: .88rem; color: var(--muted); }
+
+  /* ---- table ---- */
+  .tablewrap { overflow-x: auto; background: var(--surface);
+               border: 1px solid var(--hair); border-radius: 10px; box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+  th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+  th {
+    font-family: var(--display); font-weight: 600; font-size: .78rem;
+    text-transform: uppercase; letter-spacing: .06em; color: var(--muted);
+    background: var(--sunk); position: sticky; top: 0; z-index: 1;
+    white-space: nowrap; user-select: none;
+  }
+  th.sortable { cursor: pointer; }
+  th.sortable:hover { color: var(--ink); }
+  th .arrow { opacity: .45; font-size: .7rem; }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover { background: var(--sunk); }
+  td.rank, td.date { font-family: var(--data); font-size: .84rem; color: var(--muted); white-space: nowrap; }
+  td.title { font-style: italic; }
+  td.label { color: var(--muted); font-size: .87rem; }
+
+  .genre {
+    font-family: var(--display); font-size: .72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .05em;
+    color: var(--confirm); white-space: nowrap;
+  }
+  .genre a { color: inherit; text-decoration: none; }
+  .genre a:hover { text-decoration: underline; }
+
+  /* ---- detail pages ---- */
+  h1.page { font-family: var(--display); font-size: 1.9rem; letter-spacing: -.02em; margin: 0 0 6px; }
+  .sub { color: var(--muted); font-size: .95rem; margin: 0 0 22px; }
+  .back { font-family: var(--display); font-size: .88rem; display: inline-block; margin-bottom: 16px; }
+
+  .stat-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 22px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--hair); border-radius: 10px;
+    padding: 12px 18px; box-shadow: var(--shadow); flex: 1 1 130px;
+  }
+  .stat-n { font-family: var(--display); font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; }
+  .stat-l { font-family: var(--display); font-size: .76rem; text-transform: uppercase;
+            letter-spacing: .05em; color: var(--muted); margin-top: 2px; }
+
+  .note {
+    background: var(--sunk); border-left: 3px solid var(--signal);
+    padding: 10px 16px; border-radius: 0 8px 8px 0; font-size: .9rem;
+    color: var(--muted); margin: 0 0 20px;
+  }
+  .empty { padding: 40px 20px; text-align: center; color: var(--muted); font-family: var(--display); }
+  .more { text-align: center; padding: 16px; }
+  button.more-btn {
+    font-family: var(--display); font-size: .9rem; cursor: pointer;
+    background: var(--sunk); color: var(--ink);
+    border: 1px solid var(--hair); border-radius: 8px; padding: 9px 20px;
+  }
+  button.more-btn:hover { border-color: var(--signal); color: var(--signal); }
+  mark { background: color-mix(in srgb, var(--signal) 26%, transparent); color: inherit; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="brand"><a href="#/">KCMU Chart Browser</a></p>
+    <p class="tagline">7,847 airplay entries, January 1995 – July 2000 ·
+      <a href="index.html">read the write-up</a> ·
+      <a href="https://github.com/JimGalasyn/kcmu-charts">source</a></p>
+  </div>
+</header>
+
+<main class="wrap" id="app">
+  <p class="empty">Loading charts…</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  var app = document.getElementById("app");
+  var ROWS = [];
+  var BY_ARTIST = Object.create(null);   // slug -> {display, variants, rows}
+  var BY_CHART  = Object.create(null);   // "page|genre" -> rows (in chart order)
+  var PAGE_SIZE = 200;
+
+  /* ---------- CSV ---------- *
+   * Titles contain commas and the odd quote, so this is a real RFC 4180 parser
+   * rather than a split(","). Embedded newlines inside quoted fields are handled
+   * too: an earlier cut of this data had the chart week wrapped across lines, and
+   * a parser that assumed one record per line silently mangled ~1,200 rows.       */
+  function parseCSV(text) {
+    var rows = [], row = [], field = "", i = 0, inQ = false, c;
+    if (text.charCodeAt(0) === 0xFEFF) i = 1;            // strip BOM
+    for (; i < text.length; i++) {
+      c = text[i];
+      if (inQ) {
+        if (c === '"') {
+          if (text[i + 1] === '"') { field += '"'; i++; }
+          else inQ = false;
+        } else field += c;
+      } else if (c === '"') {
+        inQ = true;
+      } else if (c === ",") {
+        row.push(field); field = "";
+      } else if (c === "\n" || c === "\r") {
+        if (c === "\r" && text[i + 1] === "\n") i++;
+        row.push(field); field = "";
+        if (row.length > 1 || row[0] !== "") rows.push(row);
+        row = [];
+      } else field += c;
+    }
+    if (field !== "" || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  function slugify(s) {
+    return s.toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "") || "unknown";
+  }
+
+  var GENRE_LABEL = {
+    "americana": "Americana 40", "blues": "Blues 10",
+    "electronic-dance": "RPM 10", "hip-hop": "Beat Box 10",
+    "northwest": "Northwest 10", "retrospective": "Retrospective",
+    "variety": "Variety 60", "world": "New World 10"
+  };
+  function genreLabel(g) { return GENRE_LABEL[g] || g; }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  /* Highlight the query inside an already-escaped string. */
+  function hl(escaped, q) {
+    if (!q) return escaped;
+    var re = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
+    return escaped.replace(re, "<mark>$1</mark>");
+  }
+
+  /* ---------- indexes ---------- */
+  function buildIndexes() {
+    ROWS.forEach(function (r, i) {
+      r.i = i;
+      r.slug = slugify(r.artist);
+      r.chartKey = r.chart_page + "|" + r.genre;
+      r.hay = (r.artist + " " + r.title + " " + r.label).toLowerCase();
+
+      var a = BY_ARTIST[r.slug];
+      if (!a) a = BY_ARTIST[r.slug] = { display: r.artist, counts: {}, rows: [] };
+      a.rows.push(r);
+      a.counts[r.artist] = (a.counts[r.artist] || 0) + 1;
+
+      (BY_CHART[r.chartKey] || (BY_CHART[r.chartKey] = [])).push(r);
+    });
+    // Display the most frequent spelling; "R.L. Burnside" and "R L Burnside" share a slug.
+    Object.keys(BY_ARTIST).forEach(function (s) {
+      var a = BY_ARTIST[s], best = null, n = -1;
+      Object.keys(a.counts).forEach(function (k) { if (a.counts[k] > n) { n = a.counts[k]; best = k; } });
+      a.display = best;
+      a.variants = Object.keys(a.counts).sort();
+    });
+  }
+
+  /* ---------- shared rendering ---------- */
+  function chartLink(r) {
+    return '<a href="#/chart/' + encodeURIComponent(r.chartKey) + '">' +
+           esc(r.period || "no chart week") + "</a>";
+  }
+  function artistLink(r, q) {
+    return '<a href="#/artist/' + encodeURIComponent(r.slug) + '">' + hl(esc(r.artist), q) + "</a>";
+  }
+  function genreCell(g) {
+    return '<span class="genre"><a href="#/?genre=' + encodeURIComponent(g) + '">' +
+           esc(genreLabel(g)) + "</a></span>";
+  }
+
+  /* ---------- state ---------- */
+  var state = { q: "", genre: "", year: "", sort: "date", dir: 1, shown: PAGE_SIZE };
+
+  function matches() {
+    var q = state.q.toLowerCase();
+    return ROWS.filter(function (r) {
+      if (state.genre && r.genre !== state.genre) return false;
+      if (state.year && r.date.slice(0, 4) !== state.year) return false;
+      if (q && r.hay.indexOf(q) === -1) return false;
+      return true;
+    });
+  }
+
+  var SORTS = {
+    date:   function (r) { return r.date || "￿"; },   // undated sort last
+    artist: function (r) { return r.artist.toLowerCase(); },
+    title:  function (r) { return r.title.toLowerCase(); },
+    label:  function (r) { return r.label.toLowerCase(); },
+    genre:  function (r) { return r.genre; }
+  };
+
+  function sortRows(list) {
+    var key = SORTS[state.sort] || SORTS.date, d = state.dir;
+    return list.slice().sort(function (a, b) {
+      var x = key(a), y = key(b);
+      if (x < y) return -1 * d;
+      if (x > y) return 1 * d;
+      return a.i - b.i;                       // stable: fall back to chart order
+    });
+  }
+
+  /* ---------- views ---------- */
+  function viewIndex() {
+    var all = sortRows(matches());
+    var slice = all.slice(0, state.shown);
+    var q = state.q;
+
+    var genreOpts = ["", "americana", "blues", "electronic-dance", "hip-hop",
+                     "northwest", "retrospective", "variety", "world"].map(function (g) {
+      return '<option value="' + g + '"' + (state.genre === g ? " selected" : "") + ">" +
+             (g ? esc(genreLabel(g)) : "All charts") + "</option>";
+    }).join("");
+    var yearOpts = ["", "1995", "1996", "1997", "1998", "1999", "2000"].map(function (y) {
+      return '<option value="' + y + '"' + (state.year === y ? " selected" : "") + ">" +
+             (y || "All years") + "</option>";
+    }).join("");
+
+    function th(key, text) {
+      var active = state.sort === key;
+      return '<th class="sortable" data-sort="' + key + '">' + text +
+             ' <span class="arrow">' + (active ? (state.dir === 1 ? "▲" : "▼") : "↕") + "</span></th>";
+    }
+
+    var html =
+      '<div class="controls">' +
+        '<input type="search" id="q" placeholder="Search artist, title or label…" value="' +
+          esc(q) + '" autocomplete="off" spellcheck="false">' +
+        '<select id="genre">' + genreOpts + "</select>" +
+        '<select id="year">' + yearOpts + "</select>" +
+      "</div>" +
+      '<p class="count">' + all.length.toLocaleString() + " of " +
+        ROWS.length.toLocaleString() + " entries" +
+        (all.length > slice.length ? " · showing " + slice.length.toLocaleString() : "") +
+      "</p>";
+
+    if (!all.length) {
+      html += '<div class="tablewrap"><p class="empty">Nothing matches that.</p></div>';
+      app.innerHTML = html;
+      wireControls();
+      return;
+    }
+
+    html += '<div class="tablewrap"><table><thead><tr>' +
+              th("date", "Week") + th("artist", "Artist") + th("title", "Title") +
+              th("label", "Label") + th("genre", "Chart") +
+            "</tr></thead><tbody>" +
+            slice.map(function (r) {
+              return "<tr>" +
+                '<td class="date">' + chartLink(r) + "</td>" +
+                "<td>" + artistLink(r, q) + "</td>" +
+                '<td class="title">' + hl(esc(r.title), q) + "</td>" +
+                '<td class="label">' + hl(esc(r.label), q) + "</td>" +
+                "<td>" + genreCell(r.genre) + "</td>" +
+              "</tr>";
+            }).join("") +
+            "</tbody></table>";
+
+    if (all.length > slice.length) {
+      html += '<div class="more"><button class="more-btn" id="more">Show ' +
+              Math.min(PAGE_SIZE, all.length - slice.length).toLocaleString() +
+              " more</button></div>";
+    }
+    html += "</div>";
+
+    app.innerHTML = html;
+    wireControls();
+  }
+
+  function wireControls() {
+    var q = document.getElementById("q");
+    if (q) {
+      q.addEventListener("input", function () {
+        state.q = q.value; state.shown = PAGE_SIZE;
+        var pos = q.selectionStart;
+        viewIndex();
+        var nq = document.getElementById("q");
+        nq.focus(); nq.setSelectionRange(pos, pos);
+      });
+    }
+    var g = document.getElementById("genre");
+    if (g) g.addEventListener("change", function () { state.genre = g.value; state.shown = PAGE_SIZE; viewIndex(); });
+    var y = document.getElementById("year");
+    if (y) y.addEventListener("change", function () { state.year = y.value; state.shown = PAGE_SIZE; viewIndex(); });
+    var m = document.getElementById("more");
+    if (m) m.addEventListener("click", function () { state.shown += PAGE_SIZE; viewIndex(); });
+
+    Array.prototype.forEach.call(document.querySelectorAll("th.sortable"), function (th) {
+      th.addEventListener("click", function () {
+        var k = th.getAttribute("data-sort");
+        if (state.sort === k) state.dir = -state.dir;
+        else { state.sort = k; state.dir = 1; }
+        viewIndex();
+      });
+    });
+  }
+
+  function viewArtist(slug) {
+    var a = BY_ARTIST[slug];
+    if (!a) return notFound("No artist by that name.");
+
+    var rows = a.rows.slice().sort(function (x, y) {
+      return (x.date || "￿") < (y.date || "￿") ? -1 : 1;
+    });
+    var dated = rows.filter(function (r) { return r.date; });
+    var genres = {};
+    rows.forEach(function (r) { genres[r.genre] = (genres[r.genre] || 0) + 1; });
+    // Keyed lowercase: the same release is capitalised differently across charts
+    // ("Music 4 Films Of Buster Keaton" vs "...of Buster Keaton"), and counting
+    // those separately overstates how much an artist actually released.
+    var titles = {};
+    rows.forEach(function (r) { if (r.title) titles[r.title.toLowerCase()] = 1; });
+
+    var html =
+      '<a class="back" href="#/">← all charts</a>' +
+      '<h1 class="page">' + esc(a.display) + "</h1>" +
+      '<p class="sub">' +
+        (dated.length
+          ? esc(dated[0].period) + " → " + esc(dated[dated.length - 1].period)
+          : "no dated appearances") +
+      "</p>";
+
+    if (a.variants.length > 1) {
+      html += '<p class="note">Charted under ' + a.variants.length +
+              " spellings, merged here: " +
+              a.variants.map(function (v) { return "<em>" + esc(v) + "</em>"; }).join(", ") +
+              ".</p>";
+    }
+    if (a.display === "(Various)" || a.display === "(Soundtrack)") {
+      html += '<p class="note">This is not an artist — it is how the charts marked ' +
+              'compilations and soundtracks. The entries below share only that label.</p>';
+    }
+
+    html +=
+      '<div class="stat-row">' +
+        '<div class="stat"><div class="stat-n">' + rows.length + '</div>' +
+          '<div class="stat-l">Chart appearances</div></div>' +
+        '<div class="stat"><div class="stat-n">' + Object.keys(titles).length + '</div>' +
+          '<div class="stat-l">Distinct releases</div></div>' +
+        '<div class="stat"><div class="stat-n">' + Object.keys(genres).length + '</div>' +
+          '<div class="stat-l">Charts appeared on</div></div>' +
+      "</div>" +
+      '<div class="tablewrap"><table><thead><tr>' +
+        "<th>Week</th><th>Title</th><th>Label</th><th>Chart</th>" +
+      "</tr></thead><tbody>" +
+      rows.map(function (r) {
+        return "<tr>" +
+          '<td class="date">' + chartLink(r) + "</td>" +
+          '<td class="title">' + esc(r.title) + "</td>" +
+          '<td class="label">' + esc(r.label) + "</td>" +
+          "<td>" + genreCell(r.genre) + "</td>" +
+        "</tr>";
+      }).join("") +
+      "</tbody></table></div>";
+
+    app.innerHTML = html;
+  }
+
+  function viewChart(key) {
+    var rows = BY_CHART[key];
+    if (!rows) return notFound("No chart with that id.");
+    var first = rows[0];
+
+    var html =
+      '<a class="back" href="#/">← all charts</a>' +
+      '<h1 class="page">' + esc(genreLabel(first.genre)) + "</h1>" +
+      '<p class="sub">' + esc(first.period || "No chart week printed on this page") +
+        (first.date ? " · " + esc(first.date) : "") +
+        " · " + rows.length + " entries</p>";
+
+    if (!first.period) {
+      html += '<p class="note">A retrospective page — a year-end countdown or an ' +
+              "archive index rather than a weekly chart, so it carries no chart week.</p>";
+    }
+
+    html +=
+      '<div class="tablewrap"><table><thead><tr>' +
+        "<th>#</th><th>Artist</th><th>Title</th><th>Label</th>" +
+      "</tr></thead><tbody>" +
+      rows.map(function (r, i) {
+        return "<tr>" +
+          '<td class="rank">' + (i + 1) + "</td>" +
+          "<td>" + artistLink(r, "") + "</td>" +
+          '<td class="title">' + esc(r.title) + "</td>" +
+          '<td class="label">' + esc(r.label) + "</td>" +
+        "</tr>";
+      }).join("") +
+      "</tbody></table></div>";
+
+    app.innerHTML = html;
+  }
+
+  function notFound(msg) {
+    app.innerHTML = '<a class="back" href="#/">← all charts</a>' +
+                    '<div class="tablewrap"><p class="empty">' + esc(msg) + "</p></div>";
+  }
+
+  /* ---------- routing ---------- */
+  function route() {
+    var h = location.hash.replace(/^#/, "");
+    var m;
+    if ((m = h.match(/^\/artist\/(.+)$/))) return viewArtist(decodeURIComponent(m[1]));
+    if ((m = h.match(/^\/chart\/(.+)$/)))  return viewChart(decodeURIComponent(m[1]));
+    if ((m = h.match(/^\/\?genre=(.*)$/))) {
+      state.genre = decodeURIComponent(m[1]); state.shown = PAGE_SIZE;
+    }
+    viewIndex();
+    var q = document.getElementById("q");
+    if (q && state.q) q.focus();
+  }
+
+  window.addEventListener("hashchange", route);
+
+  /* ---------- boot ---------- */
+  fetch("kcmu_charts.csv")
+    .then(function (r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.text();
+    })
+    .then(function (text) {
+      var grid = parseCSV(text);
+      var head = grid.shift();
+      var idx = {};
+      head.forEach(function (h, i) { idx[h.trim()] = i; });
+      ["genre", "chart_page", "date", "period", "artist", "title", "label"].forEach(function (c) {
+        if (!(c in idx)) throw new Error("CSV is missing the '" + c + "' column");
+      });
+      ROWS = grid.map(function (g) {
+        return {
+          genre: g[idx.genre] || "", chart_page: g[idx.chart_page] || "",
+          date: g[idx.date] || "", period: g[idx.period] || "",
+          artist: g[idx.artist] || "", title: g[idx.title] || "",
+          label: g[idx.label] || ""
+        };
+      });
+      buildIndexes();
+      route();
+    })
+    .catch(function (e) {
+      app.innerHTML = '<div class="tablewrap"><p class="empty">Could not load the chart data: ' +
+                      esc(e.message) + "</p></div>";
+    });
+})();
+</script>
+</body>
+</html>

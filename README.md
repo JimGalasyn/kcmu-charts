@@ -73,4 +73,19 @@ Chart listings are factual records, reproduced here for historical and research 
 
 If you are at KEXP and want this data, take it, or ask and it will be handed over in whatever form is useful.
 
+## License
+
+The repository is licensed in two parts, because the two halves are not the same
+kind of thing:
+
+| | licence | why |
+| --- | --- | --- |
+| `scripts/`, `docs/`, this README | [MIT](LICENSE) | original work |
+| `data/` | [CC0 1.0](data/LICENSE) | a factual record, not original authorship |
+
+Facts are not copyrightable, so `data/` carries a public-domain dedication rather
+than a copyright licence — asserting one over charts compiled by someone else
+would be claiming something that isn't mine to claim. CC0 imposes no conditions
+on reuse by anyone, KEXP included.
+
 Corrections welcome, particularly from anyone who was there.

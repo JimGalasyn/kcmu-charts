@@ -17,7 +17,26 @@ LI = re.compile(r"(?is)<li>(.*?)(?:</li>|(?=<li>)|</ol>)")
 # Titles are italicised, but the tag varies by year: <i> in the RPM pages,
 # <em> in the Variety/Northwest pages.
 ITALIC = re.compile(r"(?is)<(i|em)>(.*?)</\1>")
-DATELINE = re.compile(r"(?i)(week of|month of)?\s*([A-Z][a-z]+ \d+\s*-\s*[A-Za-z]* ?\d+, \d{4})")
+MONTHS = ("January|February|March|April|May|June|July|August|September|October|"
+          "November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept?|Oct|Nov|Dec")
+# A chart week: "August 31 - Sept 6, 1998". The closing month is optional (the range
+# may stay inside one month) and the source is inconsistent about spacing around both
+# the hyphen and the comma, so every separator is \s*.
+DATELINE = re.compile(
+    r"(?i)(?:week of|month of)?\s*"
+    r"((?:%s)\s+\d{1,2}\s*-\s*(?:(?:%s)\s+)?\d{1,2}\s*,\s*\d{4})" % (MONTHS, MONTHS)
+)
+# From April 2000 the site published monthly rather than weekly, so the best available
+# period is a bare "April 2000". Only consulted when DATELINE finds nothing, and
+# deliberately narrow: the page furniture on these later pages is a month/year archive
+# nav ("... nov dec 2001 2000 1999"), and the prose mentions founding dates, so a bare
+# month-year search matches the wrong thing about as often as the right one. Anchoring
+# on the table header that follows the real dateline is what separates them, so this
+# requires a FULL month name immediately followed by the chart table's first column.
+MONTHLINE = re.compile(
+    r"(?i)\b((?:January|February|March|April|May|June|July|August|September|October|"
+    r"November|December)\s+(?:19|20)\d{2})\s+Artist\b"
+)
 
 
 def clean(s):
@@ -27,12 +46,18 @@ def clean(s):
 
 def parse(path):
     raw = open(path, errors="replace").read()
+    # Strip tags, decode entities, and collapse whitespace BEFORE matching. The source
+    # wraps datelines across lines and pads them with &nbsp;, so a pattern applied to
+    # the raw text silently misses them and the row lands with an empty period.
+    flat = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw)))
     period = ""
-    m = DATELINE.search(re.sub(r"<[^>]+>", " ", raw))
+    m = DATELINE.search(flat)
     if m:
-        # Source HTML wraps the chart week across lines; collapse it so the field
-        # stays on one CSV line.
-        period = re.sub(r"\s+", " ", m.group(2)).strip()
+        period = re.sub(r"\s+", " ", m.group(1)).strip()
+    else:
+        m = MONTHLINE.search(flat)
+        if m:
+            period = re.sub(r"\s+", " ", m.group(1)).strip()
     rows = []
     for block in LI.findall(raw):
         if not clean(block):

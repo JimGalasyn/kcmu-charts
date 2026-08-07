@@ -14,7 +14,7 @@ KEXP's public playlist API begins around 2001. Everything before that — the KC
 | --- | --- |
 | `genre` | which chart: `variety`, `northwest`, `electronic-dance` (RPM), `americana`, `blues`, `world`, `hip-hop` (Beat Box), `jazz`, `retrospective` |
 | `chart_page` | source page id — `YYMM` for monthly charts, a name for retrospectives |
-| `period` | the chart week as printed, e.g. `March 4-10, 1996` |
+| `period` | the chart week as printed, e.g. `March 4-10, 1996`. From April 2000 the station published monthly, so those rows carry a bare `April 2000`. Empty for the 457 `retrospective` rows — year-end countdowns and index pages have no chart week |
 | `artist` / `title` / `label` | as printed |
 
 Supporting directories:

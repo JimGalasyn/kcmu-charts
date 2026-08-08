@@ -90,7 +90,7 @@ Four things that will bite anyone repeating this:
 
 Chart listings are factual records, reproduced here for historical and research purposes with sources credited above. The underlying archives — the Internet Archive and World Radio History — are both nonprofits worth supporting. KCMU's call letters and programming history belong to KEXP.
 
-If you are at KEXP and want this data, take it, or ask and it will be handed over in whatever form is useful.
+If you are at KEXP and want this data, please feel free to take it, or ask and I'll send it in whatever form is useful.
 
 ## License
 
